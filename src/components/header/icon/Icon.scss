@@ -1,0 +1,23 @@
+@import "App.scss";
+
+button {
+  &.dark {
+    color: $lightColor;
+  }
+
+  &.icon {
+    outline: none;
+    border: none;
+    background: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    span {
+      &.icon-name {
+        margin-left: 6px;
+      }
+    }
+  }
+}

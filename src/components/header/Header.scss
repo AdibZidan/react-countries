@@ -1,0 +1,17 @@
+@import "./App.scss";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: $max-width;
+
+  &.light {
+    background: $lightBg;
+  }
+
+  &.dark {
+    background: $darkBg;
+    color: $lightColor;
+  }
+}
