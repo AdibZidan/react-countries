@@ -1,8 +1,8 @@
-import './Header.scss';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { Theme } from 'App';
 import { Dispatch, SetStateAction } from 'react';
 import { determineIconDefinition, determineIconName } from './Header.helper';
+import './Header.scss';
 import Icon from './icon/Icon';
 
 export interface HeaderProps {
@@ -15,16 +15,16 @@ export default function Header({ theme, setTheme }: HeaderProps) {
   const iconDefinition: IconDefinition = determineIconDefinition(theme);
 
   return (
-    <header className={ theme }>
+    <header className={`header ${theme}`}>
       <h1>
         Where in the world?
       </h1>
 
       <Icon
-        iconName={ iconName }
-        iconDefinition={ iconDefinition }
-        theme={ theme }
-        setTheme={ setTheme }
+        iconName={iconName}
+        iconDefinition={iconDefinition}
+        theme={theme}
+        setTheme={setTheme}
       />
     </header>
   );

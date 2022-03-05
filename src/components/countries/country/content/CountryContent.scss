@@ -1,0 +1,17 @@
+figcaption {
+  &.country {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    span {
+      &.name {
+        display: block;
+        margin-bottom: 6px;
+        padding-left: 22px;
+        padding-bottom: 10px;
+        font-weight: bold;
+      }
+    }
+  }
+}

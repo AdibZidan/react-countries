@@ -1,17 +1,27 @@
 @import "./App.scss";
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-width: $max-width;
+  &.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 16px;
+    height: 90px;
 
-  &.light {
-    background: $lightBg;
-  }
+    h1 {
+      margin-left: 90px;
+      font-size: 18px;
+    }
 
-  &.dark {
-    background: $darkBg;
-    color: $lightColor;
+    &.light {
+      background: $lightBg;
+      box-shadow: rgb(0 0 0 / 5%) 0 6px 24px 0, rgb(0 0 0 / 8%) 0 0 0 1px;
+    }
+
+    &.dark {
+      background: $secondaryBg;
+      color: $lightColor;
+    }
   }
 }

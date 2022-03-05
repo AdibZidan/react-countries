@@ -1,0 +1,21 @@
+div {
+  &.information {
+    margin: 4px 0;
+
+    span {
+      &.key {
+        font-weight: 600;
+        padding-left: 22px;
+        padding-right: 4px;
+      }
+
+      &.value {
+        font-weight: lighter;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 14px;
+    }
+  }
+}

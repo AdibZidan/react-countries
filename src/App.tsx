@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.scss';
+import Countries from './components/countries/Countries';
 import Header from './components/header/Header';
 
 export enum Theme {
@@ -13,8 +14,11 @@ export default function App() {
   return (
     <>
       <Header
-        theme={ theme }
-        setTheme={ setTheme }
+        theme={theme}
+        setTheme={setTheme}
+      />
+      <Countries
+        theme={theme}
       />
     </>
   );

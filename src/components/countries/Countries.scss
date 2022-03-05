@@ -1,0 +1,16 @@
+@import "../../App.scss";
+
+section {
+  &.countries {
+    display: grid;
+    grid-template-columns: repeat(4, 0fr);
+    grid-template-rows: repeat(4, 0fr);
+    justify-content: space-around;
+    padding: 0 50px;
+  }
+
+  &.dark {
+    background-color: $darkBg;
+    color: $lightColor;
+  }
+}

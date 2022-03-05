@@ -1,0 +1,25 @@
+@import "../../../App.scss";
+
+section {
+  &.light {
+    figure {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+  }
+
+  &.dark {
+    figure {
+      background-color: $secondaryBg;
+    }
+  }
+}
+
+figure {
+  &.country {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 22px 12px;
+    border-radius: 10px;
+  }
+}

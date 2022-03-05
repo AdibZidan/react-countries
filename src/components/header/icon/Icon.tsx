@@ -1,9 +1,9 @@
-import './Icon.scss';
-import { getUpdatedTheme } from '../Header.helper';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { Dispatch, SetStateAction } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Theme } from 'App';
+import { Dispatch, SetStateAction } from 'react';
+import { getUpdatedTheme } from '../Header.helper';
+import './Icon.scss';
 
 export interface IconProps {
   iconName: string;
@@ -15,14 +15,14 @@ export interface IconProps {
 export default function Icon({ iconName, iconDefinition, theme, setTheme }: IconProps) {
   return (
     <button
-      className={ `${ theme } icon` }
-      onClick={ (): void => setTheme(theme => getUpdatedTheme(theme)) }>
+      className={`${theme} icon`}
+      onClick={(): void => setTheme(theme => getUpdatedTheme(theme))}>
       <FontAwesomeIcon
-        icon={ iconDefinition }
+        icon={iconDefinition}
       />
 
       <span className="icon-name">
-        { iconName }
+        {iconName}
       </span>
     </button>
   );
