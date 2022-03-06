@@ -1,7 +1,27 @@
 @import "./App.scss";
 
+body {
+  &.light {
+    header {
+      &.main-header {
+        background: $lightBg;
+        box-shadow: rgb(0 0 0 / 5%) 0 6px 24px 0, rgb(0 0 0 / 8%) 0 0 0 1px;
+      }
+    }
+  }
+Ø
+  &.dark {
+    header {
+      &.main-header {
+        background: $secondaryBg;
+        color: $lightColor;
+      }
+    }
+  }
+}
+
 header {
-  &.header {
+  &.main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,16 +32,6 @@ header {
     h1 {
       margin-left: 90px;
       font-size: 18px;
-    }
-
-    &.light {
-      background: $lightBg;
-      box-shadow: rgb(0 0 0 / 5%) 0 6px 24px 0, rgb(0 0 0 / 8%) 0 0 0 1px;
-    }
-
-    &.dark {
-      background: $secondaryBg;
-      color: $lightColor;
     }
   }
 }

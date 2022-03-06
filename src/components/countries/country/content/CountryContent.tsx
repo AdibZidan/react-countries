@@ -12,7 +12,7 @@ export default function CountryContent(props: CountryContentProps) {
   const readablePopulation: string = new Intl.NumberFormat().format(props.population);
 
   return (
-    <figcaption className='country'>
+    <figcaption className="country">
       <span className="name">
         {props.name}
       </span>

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import CountryContent from './content/CountryContent';
 import './Country.scss';
 import CountryHeader from './header/CountryHeader';
@@ -11,8 +12,12 @@ export interface CountryProps {
 }
 
 export default function Country(props: CountryProps) {
+  const navigate = useNavigate();
+
   return (
-    <figure className='country'>
+    <figure
+      className="country"
+      onClick={() => navigate(`detail/${props.name.toLowerCase()}`)}>
       <CountryHeader
         flag={props.flag}
         name={props.name}

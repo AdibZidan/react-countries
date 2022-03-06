@@ -1,15 +1,19 @@
 @import "../../../App.scss";
 
-section {
+body {
   &.light {
     figure {
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      &.country {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      }
     }
   }
 
   &.dark {
     figure {
-      background-color: $secondaryBg;
+      &.country {
+        background-color: $secondaryBg;
+      }
     }
   }
 }

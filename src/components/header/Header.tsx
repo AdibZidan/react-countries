@@ -15,7 +15,7 @@ export default function Header({ theme, setTheme }: HeaderProps) {
   const iconDefinition: IconDefinition = determineIconDefinition(theme);
 
   return (
-    <header className={`header ${theme}`}>
+    <header className="main-header">
       <h1>
         Where in the world?
       </h1>
@@ -23,7 +23,6 @@ export default function Header({ theme, setTheme }: HeaderProps) {
       <Icon
         iconName={iconName}
         iconDefinition={iconDefinition}
-        theme={theme}
         setTheme={setTheme}
       />
     </header>

@@ -8,14 +8,13 @@ import './Icon.scss';
 export interface IconProps {
   iconName: string;
   iconDefinition: IconDefinition;
-  theme: Theme;
   setTheme: Dispatch<SetStateAction<Theme>>;
 }
 
-export default function Icon({ iconName, iconDefinition, theme, setTheme }: IconProps) {
+export default function Icon({ iconName, iconDefinition, setTheme }: IconProps) {
   return (
     <button
-      className={`${theme} icon`}
+      className="icon"
       onClick={(): void => setTheme(theme => getUpdatedTheme(theme))}>
       <FontAwesomeIcon
         icon={iconDefinition}

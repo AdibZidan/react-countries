@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction, useEffect } from 'react';
 
-const url = 'https://restcountries.com/v3.1/all';
+export const useApiCountriesCall = (setCountries: Dispatch<SetStateAction<any>>) => {
+  const url = 'https://restcountries.com/v3.1/all';
 
-export const useApiCall = (setCountries: Dispatch<SetStateAction<any>>) => {
   useEffect(() => {
     if (localStorage.getItem('countries') !== null) {
       fetch(url)
@@ -10,4 +10,14 @@ export const useApiCall = (setCountries: Dispatch<SetStateAction<any>>) => {
         .then(countries => setCountries(countries));
     }
   }, []);
+};
+
+export const useApiCountryDetailCall = (countryName: undefined | string) => {
+  const url = `https://restcountries.com/v3.1/name/${countryName}`;
+
+  useEffect(() => {
+    fetch(url)
+      .then(response => response.json())
+      .then(country => console.log(country));
+  });
 };

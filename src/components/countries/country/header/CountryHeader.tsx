@@ -7,7 +7,7 @@ export interface CountryHeaderProps {
 
 export default function CountryHeader({ flag, name }: CountryHeaderProps) {
   return (
-    <header className='country'>
+    <header className="country">
       <img
         src={flag}
         alt={name}

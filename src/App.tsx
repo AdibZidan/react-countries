@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import CountryDetail from 'components/countries/country/detail/CountryDetail';
+import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Countries from './components/countries/Countries';
 import Header from './components/header/Header';
@@ -10,6 +12,7 @@ export enum Theme {
 
 export default function App() {
   const [theme, setTheme] = useState(Theme.LIGHT);
+  document.body.className = theme;
 
   return (
     <>
@@ -17,9 +20,18 @@ export default function App() {
         theme={theme}
         setTheme={setTheme}
       />
-      <Countries
-        theme={theme}
-      />
+
+      <Routes>
+        <Route
+          path='/'
+          element={<Countries />}
+        />
+
+        <Route
+          path='detail/:name'
+          element={<CountryDetail />}
+        />
+      </Routes>
     </>
   );
 }

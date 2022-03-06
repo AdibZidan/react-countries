@@ -1,20 +1,15 @@
-import { Theme } from 'App';
 import { useState } from 'react';
 import './Countries.scss';
 import Country from './country/Country';
 import { Country as ICountry } from './country/Country.interface';
 
-export interface CountriesProps {
-  theme: Theme;
-}
-
-export default function Countries({ theme }: CountriesProps) {
+export default function Countries() {
   const [countries, setCountries] = useState(
     JSON.parse(localStorage.getItem('countries') as string)
   );
 
   return (
-    <section className={`countries ${theme}`}>
+    <section className="countries">
       {
         countries.length > 0 &&
         countries.map((country: ICountry, index: number): JSX.Element =>
