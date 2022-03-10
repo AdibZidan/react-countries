@@ -1,0 +1,27 @@
+div {
+  &.information {
+    margin: 14px 0;
+
+    header {
+      margin-left: 18px;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+  }
+
+  &.wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      &.second {
+        margin-bottom: 26px;
+
+        :nth-child(4) {
+          display: flex;
+          width: 400px;
+        }
+      }
+    }
+  }
+}

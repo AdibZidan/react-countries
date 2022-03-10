@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap");
-@import "./App.scss";
+@import "App.scss";
 
 * {
   margin: 0;
@@ -11,14 +11,18 @@
 body {
   font-size: 14px;
 
-  main {
-    height: 100vh;
+  &.light {
+    figure {
+      &.image {
+        img {
+          box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+        }
+      }
+    }
   }
 
   &.dark {
-    main {
-      background-color: $darkBg;
-      color: $lightColor;
-    }
+    background-color: $darkBg;
+    color: $lightColor;
   }
 }

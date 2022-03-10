@@ -1,0 +1,17 @@
+@import "App.scss";
+
+body {
+  &.light {
+    button:not(.icon) {
+      background-color: $lightBg;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+  }
+
+  &.dark {
+    button {
+      background-color: $secondaryBg;
+      color: $lightColor;
+    }
+  }
+}

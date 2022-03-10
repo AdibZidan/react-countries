@@ -1,3 +1,4 @@
+import { formatIntoReadable } from '../Country.helper';
 import './CountryContent.scss';
 import CountryInformation from './information/CountryInformation';
 
@@ -9,7 +10,7 @@ export interface CountryContentProps {
 }
 
 export default function CountryContent(props: CountryContentProps) {
-  const readablePopulation: string = new Intl.NumberFormat().format(props.population);
+  const readablePopulation: string = formatIntoReadable(props.population);
 
   return (
     <figcaption className="country">

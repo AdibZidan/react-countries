@@ -1,4 +1,4 @@
-@import "./App.scss";
+@import "App.scss";
 
 body {
   &.light {
@@ -9,7 +9,7 @@ body {
       }
     }
   }
-Ø
+
   &.dark {
     header {
       &.main-header {

@@ -1,0 +1,35 @@
+div {
+  &.border-container {
+    display: flex;
+    align-items: center;
+
+    span {
+      &.pointer {
+        font-weight: 600;
+        padding-left: 22px;
+        padding-right: 4px;
+      }
+
+      &.value {
+        font-weight: lighter;
+      }
+    }
+  }
+
+  &.border-countries {
+    display: flex;
+    width: 400px;
+    flex-wrap: wrap;
+
+    button {
+      &.value {
+        outline: none;
+        border: none;
+        margin: 8px 10px;
+        padding: 6px;
+        width: 80px;
+        border-radius: 4px;
+      }
+    }
+  }
+}
