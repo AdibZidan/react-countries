@@ -25,5 +25,9 @@ figure {
     justify-content: space-between;
     margin: 22px 12px;
     border-radius: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

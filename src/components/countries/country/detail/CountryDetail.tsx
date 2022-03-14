@@ -1,18 +1,29 @@
+import { CountriesState } from 'App';
 import { useApiCountryDetailCall } from 'components/countries/Countries.helper';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../content/button/Button';
-import { countryDetailInformation } from './CountryDetail.props';
 import './CountryDetail.scss';
 import CountryDetailImage from './image/CountryDetailImage';
 import CountryDetailInformation from './information/CountryDetailInformation';
 
-export default function CountryDetail() {
+export interface CountryDetailProps {
+  setCountries: React.Dispatch<React.SetStateAction<CountriesState>>;
+}
+
+export default function CountryDetail({ setCountries }: CountryDetailProps) {
   const { name } = useParams();
   const navigate = useNavigate();
-  const [country, setCountry] = useState(countryDetailInformation);
+  const country = useApiCountryDetailCall(name ?? '');
 
-  useApiCountryDetailCall(name, setCountry);
+  useEffect(() => {
+    if (name) {
+      setCountries((countriesState: CountriesState) => ({
+        countries: countriesState.copy,
+        copy: countriesState.copy
+      }));
+    }
+  }, []);
 
   return (
     <>

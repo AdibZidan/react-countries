@@ -12,6 +12,13 @@ body {
   font-size: 14px;
 
   &.light {
+    div {
+      &.search-field-wrapper {
+        background-color: $lightBg;
+        box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+      }
+    }
+
     figure {
       &.image {
         img {
@@ -24,5 +31,17 @@ body {
   &.dark {
     background-color: $darkBg;
     color: $lightColor;
+
+    .search-field-wrapper,
+    .search-field {
+      background-color: $secondaryBg;
+      color: $lightColor;
+    }
+
+    .search-field {
+      &::placeholder {
+        color: $lightColor;
+      }
+    }
   }
 }

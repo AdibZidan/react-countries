@@ -1,8 +1,11 @@
+import { useApiCountriesCall } from 'components/countries/Countries.helper';
+import { Country } from 'components/countries/country/Country.interface';
 import CountryDetail from 'components/countries/country/detail/CountryDetail';
+import CountriesViewDeterminer from 'components/countries/view-determiner/CountriesViewDeterminer';
+import SearchField from 'components/search-field/SearchField';
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
-import Countries from './components/countries/Countries';
 import Header from './components/header/Header';
 
 export enum Theme {
@@ -10,8 +13,15 @@ export enum Theme {
   DARK = 'dark'
 }
 
+export interface CountriesState {
+  countries: Country[];
+  copy: Country[];
+}
+
 export default function App() {
   const [theme, setTheme] = useState(Theme.LIGHT);
+  const { countriesState, setCountries } = useApiCountriesCall();
+
   document.body.className = theme;
 
   return (
@@ -24,12 +34,27 @@ export default function App() {
       <Routes>
         <Route
           path='/'
-          element={<Countries />}
+          element={
+            <>
+              <SearchField
+                setCountries={setCountries}
+                state={countriesState}
+              />
+
+              <CountriesViewDeterminer
+                countriesState={countriesState}
+              />
+            </>
+          }
         />
 
         <Route
           path='detail/:name'
-          element={<CountryDetail />}
+          element={
+            <CountryDetail
+              setCountries={setCountries}
+            />
+          }
         />
       </Routes>
     </>

@@ -1,18 +1,18 @@
-import { useState } from 'react';
+import { getStyle } from './Countries.helper';
 import './Countries.scss';
 import Country from './country/Country';
-import { Country as ICountry } from './country/Country.interface';
+import { Country as CountryInterface } from './country/Country.interface';
 
-export default function Countries() {
-  const [countries, setCountries] = useState(
-    JSON.parse(localStorage.getItem('countries') as string)
-  );
+export interface CountriesProps {
+  countries: CountryInterface[];
+}
 
+export default function Countries({ countries }: CountriesProps) {
   return (
-    <section className="countries">
+    <section className="countries" style={getStyle(countries)}>
       {
         countries.length > 0 &&
-        countries.map((country: ICountry, index: number): JSX.Element =>
+        countries.map((country: CountryInterface, index: number): JSX.Element =>
           <Country
             key={index}
             flag={country.flags?.png}

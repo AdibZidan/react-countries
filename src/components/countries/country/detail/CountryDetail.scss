@@ -8,6 +8,10 @@ button {
     padding: 6px;
     width: 80px;
     border-radius: 4px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

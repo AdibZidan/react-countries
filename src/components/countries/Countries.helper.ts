@@ -1,19 +1,35 @@
-import { Dispatch, SetStateAction, useEffect } from 'react';
-import { CountryDetailInformation } from './country/detail/CountryDetail.interface';
+import { CountriesState } from 'App';
+import { useEffect, useState } from 'react';
+import { Country } from './country/Country.interface';
+import { countryDetailInformation } from './country/detail/CountryDetail.props';
 
-export const useApiCountriesCall = (setCountries: Dispatch<SetStateAction<any>>) => {
+export const useApiCountriesCall = () => {
+  const [countriesState, setCountries] = useState({
+    countries: [],
+    copy: []
+  } as CountriesState);
+
   const url = 'https://restcountries.com/v3.1/all';
 
   useEffect(() => {
-    if (localStorage.getItem('countries') !== null) {
-      fetch(url)
-        .then(response => response.json())
-        .then(countries => setCountries(countries));
-    }
+    fetch(url)
+      .then(response => response.json())
+      .then(countries =>
+        setCountries({
+          countries,
+          copy: countries
+        }));
   }, []);
+
+  return {
+    countriesState,
+    setCountries
+  };
 };
 
-export const useApiCountryDetailCall = (countryName: undefined | string, setCountry: Dispatch<SetStateAction<CountryDetailInformation>>) => {
+export const useApiCountryDetailCall = (countryName: string) => {
+  const [country, setCountry] = useState(countryDetailInformation);
+
   const url = `https://restcountries.com/v3.1/name/${countryName}`;
 
   useEffect(() => {
@@ -21,4 +37,10 @@ export const useApiCountryDetailCall = (countryName: undefined | string, setCoun
       .then(response => response.json())
       .then(country => setCountry(country[0]));
   }, []);
+
+  return country;
 };
+
+export const getStyle = (countries: Country[]) => ({
+  'justifyContent': countries.length <= 3 ? 'center' : 'space-evenly'
+});
