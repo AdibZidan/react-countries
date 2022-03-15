@@ -12,19 +12,12 @@ body {
   font-size: 14px;
 
   &.light {
-    div {
-      &.search-field-wrapper {
-        background-color: $lightBg;
-        box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
-      }
-    }
-
-    figure {
-      &.image {
-        img {
-          box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
-        }
-      }
+    .search-field-wrapper,
+    .image img,
+    summary,
+    .region {
+      background-color: $lightBg;
+      box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
     }
   }
 
@@ -33,7 +26,9 @@ body {
     color: $lightColor;
 
     .search-field-wrapper,
-    .search-field {
+    .search-field,
+    summary,
+    .region {
       background-color: $secondaryBg;
       color: $lightColor;
     }

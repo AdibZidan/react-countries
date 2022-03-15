@@ -1,0 +1,35 @@
+@import "App.scss";
+
+details {
+  position: relative;
+  margin: 20px 95px;
+
+  summary {
+    padding: 12px;
+    border-radius: 6px;
+  }
+
+  div {
+    &.region {
+      position: absolute;
+      right: 0;
+      left: 0;
+      margin-top: 6px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+
+      p {
+        padding: 4px 10px;
+
+        &:first-child,
+        &:last-child {
+          padding: 6px 10px;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

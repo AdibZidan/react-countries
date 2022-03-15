@@ -2,7 +2,7 @@ import { useApiCountriesCall } from 'components/countries/Countries.helper';
 import { Country } from 'components/countries/country/Country.interface';
 import CountryDetail from 'components/countries/country/detail/CountryDetail';
 import CountriesViewDeterminer from 'components/countries/view-determiner/CountriesViewDeterminer';
-import SearchField from 'components/search-field/SearchField';
+import SearchContainer from 'components/search/SearchContainer';
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
@@ -36,9 +36,9 @@ export default function App() {
           path='/'
           element={
             <>
-              <SearchField
-                setCountries={setCountries}
+              <SearchContainer
                 state={countriesState}
+                setCountries={setCountries}
               />
 
               <CountriesViewDeterminer
