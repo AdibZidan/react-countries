@@ -12,6 +12,7 @@ export interface SearchContainerProps {
 export default function SearchContainer({ state, setCountries }: SearchContainerProps) {
   const regions: string[] = Array
     .from(new Set(state.copy.map((country) => country.continents[0])))
+    .concat('All')
     .sort();
 
   return (

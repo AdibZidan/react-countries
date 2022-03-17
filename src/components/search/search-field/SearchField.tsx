@@ -1,9 +1,9 @@
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CountriesState } from 'App';
-import { getFilteredCountries, getNewState } from 'components/search-field/SearchField.helper';
 import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { getFilteredCountries, getNewState } from './SearchField.helper';
 import './SearchField.scss';
 
 export interface SearchFieldProps {

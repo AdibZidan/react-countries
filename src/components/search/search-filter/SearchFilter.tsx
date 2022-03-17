@@ -1,6 +1,6 @@
 import { CountriesState } from 'App';
-import { Country } from 'components/countries/country/Country.interface';
 import { Dispatch, SetStateAction } from 'react';
+import { filterByRegion } from './SearchFilter.helper';
 import './SearchFilter.scss';
 
 export interface SearchFilterProps {
@@ -18,21 +18,10 @@ export default function SearchFilter({ regions, setCountries }: SearchFilterProp
 
       <div className="region">
         {
-          regions.map((region: string, index: number) =>
+          regions.map((region: string, index: number): JSX.Element =>
             <p
               key={index}
-              onClick={() => {
-                setCountries(state => {
-                  const regionExclusiveCountries: Country[] = state
-                    .copy
-                    .filter(country => country.continents[0].includes(region));
-
-                  return {
-                    ...state,
-                    countries: regionExclusiveCountries
-                  };
-                });
-              }}
+              onClick={(): void => filterByRegion(region, setCountries)}
             >
               {region}
             </p>
