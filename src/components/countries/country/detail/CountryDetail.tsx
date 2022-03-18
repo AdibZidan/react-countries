@@ -3,18 +3,20 @@ import { useApiCountryDetailCall } from 'components/countries/Countries.helper';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../content/button/Button';
+import { borderNamesConvertedIntoCommonName } from './CountryDetail.props';
 import './CountryDetail.scss';
 import CountryDetailImage from './image/CountryDetailImage';
 import CountryDetailInformation from './information/CountryDetailInformation';
 
 export interface CountryDetailProps {
+  countriesState: CountriesState;
   setCountries: React.Dispatch<React.SetStateAction<CountriesState>>;
 }
 
-export default function CountryDetail({ setCountries }: CountryDetailProps) {
+export default function CountryDetail({ countriesState, setCountries }: CountryDetailProps) {
   const { name } = useParams();
   const navigate = useNavigate();
-  const country = useApiCountryDetailCall(name ?? '');
+  const { country, setCountry } = useApiCountryDetailCall(name ?? '');
 
   useEffect(() => {
     if (name) {
@@ -44,6 +46,8 @@ export default function CountryDetail({ setCountries }: CountryDetailProps) {
 
               <CountryDetailInformation
                 countryDetailInformation={country}
+                setCountry={setCountry}
+                borderCountries={borderNamesConvertedIntoCommonName(countriesState, country)}
               />
             </section>
           </>

@@ -52,6 +52,7 @@ export default function App() {
           path='detail/:name'
           element={
             <CountryDetail
+              countriesState={countriesState}
               setCountries={setCountries}
             />
           }

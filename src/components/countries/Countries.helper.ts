@@ -38,7 +38,10 @@ export const useApiCountryDetailCall = (countryName: string) => {
       .then(country => setCountry(country[0]));
   }, []);
 
-  return country;
+  return {
+    country,
+    setCountry
+  };
 };
 
 export const getStyle = (countries: Country[]) => ({

@@ -9,6 +9,7 @@ export interface CountryDetailInformation {
   tld: null | string[];
   languages: null | string[];
   borders: null | string[];
+  cca3: null | string;
 }
 
 export interface Flags {

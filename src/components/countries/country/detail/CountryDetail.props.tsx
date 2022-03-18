@@ -1,3 +1,4 @@
+import { CountriesState } from 'App';
 import { CountryDetailInformation } from './CountryDetail.interface';
 
 export const countryDetailInformation: CountryDetailInformation = {
@@ -16,5 +17,15 @@ export const countryDetailInformation: CountryDetailInformation = {
   capital: null,
   tld: [],
   languages: [],
-  borders: []
+  borders: [],
+  cca3: null
 };
+
+export const borderNamesConvertedIntoCommonName = (
+  countriesState: CountriesState,
+  country: CountryDetailInformation
+) => countriesState
+  .countries
+  .filter(element => country.borders?.includes(element.cca3 as string))
+  .map(element => element.name.common)
+  .sort();

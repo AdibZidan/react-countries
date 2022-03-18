@@ -6,9 +6,11 @@ import './CountryDetailInformation.scss';
 
 export interface CountryDetailInformationProps {
   countryDetailInformation: CountryDetailInformationInterface;
+  setCountry: React.Dispatch<React.SetStateAction<CountryDetailInformationInterface>>;
+  borderCountries: string[];
 }
 
-export default function CountryDetailInformation({ countryDetailInformation }: CountryDetailInformationProps) {
+export default function CountryDetailInformation({ countryDetailInformation, setCountry, borderCountries }: CountryDetailInformationProps) {
   let population!: string;
   let currencies!: any;
 
@@ -78,7 +80,9 @@ export default function CountryDetailInformation({ countryDetailInformation }: C
 
       <BorderCountries
         pointer="Border Countries"
-        values={countryDetailInformation?.borders ?? null}
+        country={countryDetailInformation}
+        setCountry={setCountry}
+        values={borderCountries}
       />
     </div>
   );
