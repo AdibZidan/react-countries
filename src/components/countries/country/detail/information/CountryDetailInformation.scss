@@ -25,3 +25,30 @@ div {
     }
   }
 }
+
+@media (max-width: 1300px) {
+  div {
+    &.information {
+      width: 100%;
+
+      header {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+    }
+
+    &.wrapper {
+      flex-direction: column;
+
+      div {
+        &.second {
+          margin-bottom: 0;
+
+          :nth-child(4) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

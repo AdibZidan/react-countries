@@ -6,3 +6,14 @@ section {
     padding: 0 50px;
   }
 }
+
+@media (max-width: 1300px) {
+  section {
+    &.countries {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0;
+    }
+  }
+}

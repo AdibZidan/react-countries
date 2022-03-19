@@ -18,8 +18,8 @@ div {
 
   &.border-countries {
     display: flex;
-    width: 400px;
     flex-wrap: wrap;
+    width: 400px;
 
     button {
       &.value {
@@ -28,6 +28,32 @@ div {
         margin: 8px 10px;
         padding: 6px;
         border-radius: 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  div {
+    &.border-container {
+      flex-direction: column;
+
+      span {
+        &.pointer {
+          margin: 12px 0;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    &.border-countries {
+      width: 100%;
+
+      button {
+        &.value {
+          margin: 6px 8px;
+          padding: 4px;
+        }
       }
     }
   }

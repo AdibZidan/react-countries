@@ -17,3 +17,14 @@ div {
     }
   }
 }
+
+@media (max-width: 1300px) {
+  div {
+    &.search-field-wrapper {
+      margin: 10px 0 0 0;
+      padding: 6px;
+      width: 90%;
+      height: 50px;
+    }
+  }
+}

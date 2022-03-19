@@ -6,3 +6,14 @@ figure {
     }
   }
 }
+
+@media (max-width: 1300px) {
+  figure {
+    &.image {
+      img {
+        width: 100%;
+        padding: 0 10px;
+      }
+    }
+  }
+}

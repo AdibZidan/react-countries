@@ -20,7 +20,7 @@ export default function CountryContent(props: CountryContentProps) {
 
       <CountryInformation
         pointer={'Population'}
-        value={readablePopulation}
+        value={readablePopulation !== '0' ? readablePopulation : ''}
       />
 
       <CountryInformation

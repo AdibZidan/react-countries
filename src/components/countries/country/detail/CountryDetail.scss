@@ -22,3 +22,11 @@ section {
     align-items: center;
   }
 }
+
+@media (max-width: 1300px) {
+  section {
+    &.country {
+      flex-direction: column;
+    }
+  }
+}

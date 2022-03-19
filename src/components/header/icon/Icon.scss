@@ -29,3 +29,12 @@ button {
     }
   }
 }
+
+@media (max-width: 1300px) {
+  button {
+    &.icon {
+      margin-right: 0;
+      padding: 0;
+    }
+  }
+}

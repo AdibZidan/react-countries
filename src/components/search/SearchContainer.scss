@@ -5,3 +5,13 @@ div {
     align-items: center;
   }
 }
+
+@media (max-width: 1300px) {
+  div {
+    &.search-container {
+      flex-direction: column;
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+}
