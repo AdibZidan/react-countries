@@ -9,7 +9,7 @@ div {
 @media (max-width: 1300px) {
   div {
     &.search-container {
-      flex-direction: column;
+      display: block;
       width: 90%;
       margin: 0 auto;
     }

@@ -10,9 +10,12 @@ figure {
 @media (max-width: 1300px) {
   figure {
     &.image {
+      width: 90%;
+      max-width: 600px;
+
       img {
         width: 100%;
-        padding: 0 10px;
+        padding: 0;
       }
     }
   }
