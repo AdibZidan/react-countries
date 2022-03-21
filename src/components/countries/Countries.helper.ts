@@ -1,4 +1,4 @@
-import { CountriesState } from 'App';
+import { CountriesState } from 'CountriesContext';
 import { useEffect, useState } from 'react';
 import { Country } from './country/Country.interface';
 import { countryDetailInformation } from './country/detail/CountryDetail.props';

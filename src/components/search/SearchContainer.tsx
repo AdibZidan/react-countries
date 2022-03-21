@@ -1,24 +1,22 @@
-import { CountriesState } from 'App';
-import { Dispatch, SetStateAction } from 'react';
+import { CountriesContext } from 'CountriesContext';
+import { useContext } from 'react';
 import SearchField from './search-field/SearchField';
 import SearchFilter from './search-filter/SearchFilter';
 import './SearchContainer.scss';
 
-export interface SearchContainerProps {
-  state: CountriesState;
-  setCountries: Dispatch<SetStateAction<CountriesState>>;
-}
 
-export default function SearchContainer({ state, setCountries }: SearchContainerProps) {
+export default function SearchContainer() {
+  const { countriesState, setCountries } = useContext(CountriesContext);
+
   const regions: string[] = Array
-    .from(new Set(state.copy.map((country) => country.continents[0])))
+    .from(new Set(countriesState.copy.map((country) => country.continents[0])))
     .concat('All')
     .sort();
 
   return (
     <div className="search-container">
       <SearchField
-        state={state}
+        state={countriesState}
         setCountries={setCountries}
       />
 

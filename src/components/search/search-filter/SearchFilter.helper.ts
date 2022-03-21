@@ -1,5 +1,5 @@
-import { CountriesState } from 'App';
 import { Country } from 'components/countries/country/Country.interface';
+import { CountriesState } from 'CountriesContext';
 import { Dispatch, SetStateAction } from 'react';
 
 export const filterByRegion = (region: string, setCountries: Dispatch<SetStateAction<CountriesState>>): void =>

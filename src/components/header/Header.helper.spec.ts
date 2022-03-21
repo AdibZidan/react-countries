@@ -1,6 +1,6 @@
-import { determineIconDefinition, determineIconName, getUpdatedTheme } from './Header.helper';
-import { Theme } from 'App';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { Theme } from './Header';
+import { determineIconDefinition, determineIconName, getUpdatedTheme } from './Header.helper';
 
 describe('HeaderHelper', () => {
 

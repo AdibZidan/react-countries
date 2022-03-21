@@ -1,4 +1,4 @@
-import { CountriesState } from 'App';
+import { CountriesState } from 'CountriesContext';
 import { Dispatch, SetStateAction } from 'react';
 import { filterByRegion } from './SearchFilter.helper';
 import './SearchFilter.scss';

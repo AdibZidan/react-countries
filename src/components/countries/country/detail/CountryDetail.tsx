@@ -1,6 +1,6 @@
-import { CountriesState } from 'App';
 import { useApiCountryDetailCall } from 'components/countries/Countries.helper';
-import { useEffect } from 'react';
+import { CountriesContext, CountriesState } from 'CountriesContext';
+import { useContext, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../content/button/Button';
 import { borderNamesConvertedIntoCommonName } from './CountryDetail.props';
@@ -13,7 +13,9 @@ export interface CountryDetailProps {
   setCountries: React.Dispatch<React.SetStateAction<CountriesState>>;
 }
 
-export default function CountryDetail({ countriesState, setCountries }: CountryDetailProps) {
+export default function CountryDetail() {
+  const { countriesState, setCountries } = useContext(CountriesContext);
+
   const { name } = useParams();
   const navigate = useNavigate();
   const { country, setCountry } = useApiCountryDetailCall(name ?? '');

@@ -1,12 +1,11 @@
-import { CountriesState } from 'App';
 import Countries from 'components/countries/Countries';
+import { CountriesContext } from 'CountriesContext';
+import { useContext } from 'react';
 import './CountriesViewDetermines.scss';
 
-export interface CountriesViewDeterminerProps {
-  countriesState: CountriesState;
-}
+export default function CountriesViewDeterminer(): JSX.Element {
+  const { countriesState } = useContext(CountriesContext);
 
-export default function CountriesViewDeterminer({ countriesState }: CountriesViewDeterminerProps) {
   if (countriesState.copy.length === 0) {
     return (
       <div className="empty-list">

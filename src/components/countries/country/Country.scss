@@ -24,6 +24,7 @@ figure {
     flex-direction: column;
     justify-content: space-between;
     margin: 22px 12px;
+    width: $countryWidth;
     border-radius: 10px;
 
     &:hover {

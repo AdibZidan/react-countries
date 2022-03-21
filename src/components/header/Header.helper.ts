@@ -1,5 +1,5 @@
 import { faMoon, faSun, IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { Theme } from 'App';
+import { Theme } from './Header';
 
 export const determineIconName = (theme: Theme): string => Theme.LIGHT === theme ? 'Dark Mode' : 'Light Mode';
 

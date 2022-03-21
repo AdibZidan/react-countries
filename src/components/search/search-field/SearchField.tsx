@@ -1,6 +1,6 @@
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { CountriesState } from 'App';
+import { CountriesState } from 'CountriesContext';
 import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getFilteredCountries, getNewState } from './SearchField.helper';

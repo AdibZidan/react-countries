@@ -1,5 +1,5 @@
-import { CountriesState } from 'App';
 import { Country } from 'components/countries/country/Country.interface';
+import { CountriesState } from 'CountriesContext';
 
 export const getNewState = (
   countriesState: CountriesState,

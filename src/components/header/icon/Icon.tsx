@@ -1,7 +1,7 @@
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Theme } from 'App';
 import { Dispatch, SetStateAction } from 'react';
+import { Theme } from '../Header';
 import { getUpdatedTheme } from '../Header.helper';
 import './Icon.scss';
 

@@ -20,7 +20,7 @@ export default function CountryContent(props: CountryContentProps) {
 
       <CountryInformation
         pointer={'Population'}
-        value={readablePopulation !== '0' ? readablePopulation : ''}
+        value={readablePopulation}
       />
 
       <CountryInformation
@@ -30,7 +30,7 @@ export default function CountryContent(props: CountryContentProps) {
 
       <CountryInformation
         pointer={'Capital'}
-        value={props.capital}
+        value={props.capital ?? 'No Official Capital'}
       />
     </figcaption>
   );

@@ -1,4 +1,4 @@
-import { CountriesState } from 'App';
+import { CountriesState } from 'CountriesContext';
 import { CountryDetailInformation } from './CountryDetail.interface';
 
 export const countryDetailInformation: CountryDetailInformation = {
