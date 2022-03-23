@@ -80,8 +80,6 @@ export default function CountryDetailInformation({ countryDetailInformation, set
 
       <BorderCountries
         pointer="Border Countries"
-        country={countryDetailInformation}
-        setCountry={setCountry}
         values={borderCountries}
       />
     </div>

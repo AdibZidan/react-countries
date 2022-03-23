@@ -1,5 +1,5 @@
 import { useApiCountryDetailCall } from 'components/countries/Countries.helper';
-import { CountriesContext, CountriesState } from 'CountriesContext';
+import { CountriesContext } from 'CountriesContext';
 import { useContext, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../content/button/Button';
@@ -8,25 +8,15 @@ import './CountryDetail.scss';
 import CountryDetailImage from './image/CountryDetailImage';
 import CountryDetailInformation from './information/CountryDetailInformation';
 
-export interface CountryDetailProps {
-  countriesState: CountriesState;
-  setCountries: React.Dispatch<React.SetStateAction<CountriesState>>;
-}
-
 export default function CountryDetail() {
-  const { countriesState, setCountries } = useContext(CountriesContext);
-
+  const { countriesState, country, setCountry } = useContext(CountriesContext);
   const { name } = useParams();
   const navigate = useNavigate();
-  const { country, setCountry } = useApiCountryDetailCall(name ?? '');
+  const apiCountryDetailCall = useApiCountryDetailCall;
 
   useEffect(() => {
-    if (name) {
-      setCountries((countriesState: CountriesState) => ({
-        countries: countriesState.copy,
-        copy: countriesState.copy
-      }));
-    }
+    apiCountryDetailCall(name ?? '')
+      .then(country => setCountry(country[0]));
   }, []);
 
   return (

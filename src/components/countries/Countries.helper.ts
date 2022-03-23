@@ -1,7 +1,6 @@
 import { CountriesState } from 'CountriesContext';
 import { useEffect, useState } from 'react';
 import { Country } from './country/Country.interface';
-import { countryDetailInformation } from './country/detail/CountryDetail.props';
 
 export const useApiCountriesCall = () => {
   const [countriesState, setCountries] = useState({
@@ -27,21 +26,11 @@ export const useApiCountriesCall = () => {
   };
 };
 
-export const useApiCountryDetailCall = (countryName: string) => {
-  const [country, setCountry] = useState(countryDetailInformation);
-
+export const useApiCountryDetailCall = (countryName: string): Promise<any> => {
   const url = `https://restcountries.com/v3.1/name/${countryName}`;
 
-  useEffect(() => {
-    fetch(url)
-      .then(response => response.json())
-      .then(country => setCountry(country[0]));
-  }, []);
-
-  return {
-    country,
-    setCountry
-  };
+  return fetch(url)
+    .then(response => response.json());
 };
 
 export const getStyle = (countries: Country[]) => ({
