@@ -36,6 +36,7 @@ div {
 @media (max-width: 1300px) {
   div {
     &.border-container {
+      align-items: flex-start;
       flex-direction: column;
 
       span {
