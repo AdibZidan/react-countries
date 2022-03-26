@@ -24,7 +24,7 @@ export default function SearchField({ state, setCountries }: SearchFieldProps) {
   }, [value]);
 
   const searchForCountry = (event: ChangeEvent<HTMLInputElement>): void => {
-    const searchTerm: string = event.target.value;
+    const searchTerm: string = event.target.value.trim();
     setValue(searchTerm);
     setSearchParams({ country: searchTerm });
     setCountries(
@@ -32,6 +32,8 @@ export default function SearchField({ state, setCountries }: SearchFieldProps) {
         countries: searchTerm.length === 0 ? copy : getFilteredCountries(state, countryParam),
         copy
       }));
+
+    console.log(searchTerm.length);
   };
 
   return (

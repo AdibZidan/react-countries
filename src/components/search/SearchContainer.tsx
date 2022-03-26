@@ -4,7 +4,6 @@ import SearchField from './search-field/SearchField';
 import SearchFilter from './search-filter/SearchFilter';
 import './SearchContainer.scss';
 
-
 export default function SearchContainer() {
   const { countriesState, setCountries } = useContext(CountriesContext);
 

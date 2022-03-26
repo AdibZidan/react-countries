@@ -10,24 +10,28 @@ export interface SearchFilterProps {
 
 export default function SearchFilter({ regions, setCountries }: SearchFilterProps) {
   return (
-    regions &&
-    <details>
-      <summary>
-        Filter by Region
-      </summary>
+    <>
+      {
+        regions.length > 0 &&
+        <details>
+          <summary>
+            Filter by Region
+          </summary>
 
-      <div className="region">
-        {
-          regions.map((region: string, index: number): JSX.Element =>
-            <p
-              key={index}
-              onClick={(): void => filterByRegion(region, setCountries)}
-            >
-              {region}
-            </p>
-          )
-        }
-      </div>
-    </details>
+          <div className="regions">
+            {
+              regions.map((region: string, index: number): JSX.Element =>
+                <p
+                  key={index}
+                  onClick={(): void => filterByRegion(region, setCountries)}
+                >
+                  {region}
+                </p>
+              )
+            }
+          </div>
+        </details>
+      }
+    </>
   );
 }
