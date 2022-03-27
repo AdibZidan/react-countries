@@ -32,8 +32,6 @@ export default function SearchField({ state, setCountries }: SearchFieldProps) {
         countries: searchTerm.length === 0 ? copy : getFilteredCountries(state, countryParam),
         copy
       }));
-
-    console.log(searchTerm.length);
   };
 
   return (
