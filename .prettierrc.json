@@ -1,0 +1,18 @@
+{
+  "tabWidth": 4,
+  "trailingComma": "none",
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": ["**/*.json"],
+      "options": {
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ["**/*.scss", "**/*.html"],
+      "options": { "singleQuote": false }
+    }
+  ],
+  "arrowParens": "avoid"
+}
