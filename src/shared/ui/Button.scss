@@ -1,0 +1,21 @@
+@media (hover: hover) {
+    body {
+        button {
+            &:disabled {
+                cursor: not-allowed;
+            }
+
+            &:not([disabled]) {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+body {
+    button {
+        outline: none;
+        border: none;
+        background-color: transparent;
+    }
+}
