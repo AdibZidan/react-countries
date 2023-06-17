@@ -1,0 +1,14 @@
+@use "src/assets/mixins/widths";
+
+body {
+    div {
+        &.inner-wrapper {
+            display: flex;
+            justify-content: space-between;
+            max-width: widths.$desktop;
+            min-width: widths.$mobile;
+            margin: 10px auto;
+            padding: 12px;
+        }
+    }
+}

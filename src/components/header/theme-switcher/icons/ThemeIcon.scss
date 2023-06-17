@@ -1,0 +1,27 @@
+@use "src/assets/mixins/colors";
+
+body {
+    &.light {
+        svg {
+            &.theme-switcher-icon {
+                color: colors.$lightColor;
+            }
+        }
+    }
+
+    &.dark {
+        svg {
+            &.theme-switcher-icon {
+                color: colors.$darkColor;
+            }
+        }
+    }
+
+    svg {
+        &.theme-switcher-icon {
+            margin-right: 6px;
+            height: 1em;
+            vertical-align: -0.125em;
+        }
+    }
+}

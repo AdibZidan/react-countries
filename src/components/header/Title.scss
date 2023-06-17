@@ -1,0 +1,25 @@
+@use "src/assets/mixins/colors";
+
+body {
+    &.light {
+        h1 {
+            &.main-title {
+                color: colors.$lightColor;
+            }
+        }
+    }
+
+    &.dark {
+        h1 {
+            &.main-title {
+                color: colors.$darkColor;
+            }
+        }
+    }
+
+    h1 {
+        &.main-title {
+            transition: color 0.5s ease-in-out;
+        }
+    }
+}
