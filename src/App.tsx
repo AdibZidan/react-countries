@@ -1,4 +1,9 @@
 import { FC } from 'react';
-import { MainHeader } from './components';
+import { CountryList, MainHeader } from './components';
 
-export const App: FC = () => <MainHeader />;
+export const App: FC = () => (
+    <>
+        <MainHeader />
+        <CountryList />
+    </>
+);
