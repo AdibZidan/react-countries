@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@ui": ["src/shared/ui/index"]
+      "@ui": ["src/shared/ui"],
+      "@request": ["src/shared/services"],
+      "@mocks": ["src/shared/mocks"]
     }
   }
 }
