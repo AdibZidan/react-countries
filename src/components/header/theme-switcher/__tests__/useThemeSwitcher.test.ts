@@ -1,6 +1,5 @@
 import { act, renderHook } from '@testing-library/react';
-import { beforeEach, describe, expect, it } from 'vitest';
-import { useThemeSwitcher } from '../../../theme-switcher/hooks';
+import { useThemeSwitcher } from '../hooks';
 
 describe('#useThemeSwitcher()', () => {
     beforeEach(() => localStorage.clear());
