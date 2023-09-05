@@ -1,6 +1,9 @@
+import { Heading } from '@ui';
 import { FC } from 'react';
 import './Title.scss';
 
 export const Title: FC = () => (
-    <h1 className="main-title">Where in the world?</h1>
+    <Heading className="main-title" level={1}>
+        Where in the world?
+    </Heading>
 );
