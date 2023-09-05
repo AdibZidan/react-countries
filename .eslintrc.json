@@ -14,5 +14,8 @@
     "sourceType": "module"
   },
   "plugins": ["react-refresh"],
-  "rules": { "react-refresh/only-export-components": "warn" }
+  "rules": {
+    "react-refresh/only-export-components": "warn",
+    "@typescript-eslint/no-empty-function": 0
+  }
 }
