@@ -1,14 +1,25 @@
 @use "src/assets/mixins/widths";
 
+$justifyContentTypes: between, around, evenly;
+
 body {
     div {
         &.inner-wrapper {
             display: flex;
-            justify-content: space-between;
             max-width: widths.$desktop;
             min-width: widths.$mobile;
             margin: 10px auto;
             padding: 12px;
+
+            @each $type in $justifyContentTypes {
+                &.space-#{$type} {
+                    justify-content: space-#{$type};
+                }
+            }
+
+            &.wrap {
+                flex-wrap: wrap;
+            }
         }
     }
 }

@@ -1,12 +1,24 @@
 import { Div } from '@ui';
+import classNames from 'classnames';
 import { FC, ReactNode } from 'react';
 
 import './InnerWrapper.scss';
 
 interface Props {
     children: ReactNode;
+    justifyContent?: 'space-between' | 'space-around' | 'space-evenly';
+    wrap?: boolean;
 }
 
-export const InnerWrapper: FC<Props> = ({ children }) => (
-    <Div className="inner-wrapper">{children}</Div>
-);
+export const InnerWrapper: FC<Props> = ({
+    children,
+    justifyContent = 'space-between',
+    wrap = false
+}) => {
+    const className = classNames('inner-wrapper', {
+        [justifyContent]: justifyContent,
+        wrap: wrap
+    });
+
+    return <Div className={className}>{children}</Div>;
+};
