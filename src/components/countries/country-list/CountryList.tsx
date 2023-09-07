@@ -1,5 +1,7 @@
+import { Section } from '@ui';
 import { FC } from 'react';
 import { InnerWrapper } from '../../inner-wrapper';
+import { CountryCard } from './country';
 import { useCountryList } from './hooks';
 
 export const CountryList: FC = () => {
@@ -14,8 +16,12 @@ export const CountryList: FC = () => {
     }
 
     return (
-        <InnerWrapper>
-            {countries.map(({ name: { common } }) => common)}
-        </InnerWrapper>
+        <Section className="country-list">
+            <InnerWrapper justifyContent="space-around" wrap>
+                {countries.map(country => (
+                    <CountryCard key={country.name.common} country={country} />
+                ))}
+            </InnerWrapper>
+        </Section>
     );
 };

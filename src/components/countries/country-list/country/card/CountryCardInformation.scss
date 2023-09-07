@@ -1,0 +1,13 @@
+p {
+    &.country-card-information {
+        span {
+            &.label {
+                text-transform: capitalize;
+            }
+
+            &.value {
+                font-weight: 300;
+            }
+        }
+    }
+}
