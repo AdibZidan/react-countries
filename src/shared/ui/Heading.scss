@@ -1,24 +1,22 @@
 @use "src/assets/mixins/colors";
 
-body {
-    &.light {
-        h1 {
-            &.main-title {
+$headings: 1, 2, 3, 4, 5, 6;
+
+@each $heading in $headings {
+    body {
+        &.light {
+            h#{$heading} {
                 color: colors.$lightColor;
             }
         }
-    }
 
-    &.dark {
-        h1 {
-            &.main-title {
+        &.dark {
+            h#{$heading} {
                 color: colors.$darkColor;
             }
         }
-    }
 
-    h1 {
-        &.main-title {
+        h#{$heading} {
             transition: color 0.5s ease-in-out;
         }
     }

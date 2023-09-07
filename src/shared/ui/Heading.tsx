@@ -1,4 +1,5 @@
 import { createElement, FC, ReactNode } from 'react';
+import './Heading.scss';
 
 interface Props {
     children: ReactNode;
