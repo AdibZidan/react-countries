@@ -17,11 +17,25 @@ export const CountryCardFooter: FC<Props> = ({
     capital
 }) => (
     <Footer className="country-card-footer">
-        <Heading level={3}>{countryName}</Heading>
-        <CountryCardInformation label="population" value={population} />
-        <CountryCardInformation label="region" value={region} />
+        <Heading data-test="country-card-heading" level={3}>
+            {countryName}
+        </Heading>
+        <CountryCardInformation
+            data-test="country-card-population"
+            label="population"
+            value={population}
+        />
+        <CountryCardInformation
+            data-test="country-card-region"
+            label="region"
+            value={region}
+        />
         {capital.length === 1 && (
-            <CountryCardInformation label="capital" value={capital[0]} />
+            <CountryCardInformation
+                data-test="country-card-capital"
+                label="capital"
+                value={capital[0]}
+            />
         )}
     </Footer>
 );

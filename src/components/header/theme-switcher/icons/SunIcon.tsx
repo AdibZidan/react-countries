@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 export const SunIcon: FC = () => (
     <svg
+        data-test="sun-icon"
         aria-hidden="true"
         focusable="false"
         className="theme-switcher-icon sun"

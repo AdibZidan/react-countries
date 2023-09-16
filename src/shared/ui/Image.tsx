@@ -1,13 +1,19 @@
 import { FC } from 'react';
 
 interface Props {
-    className?: string;
+    'data-test': string;
     src: string;
     alt: string;
+    className?: string;
 }
 
-export const Image: FC<Props> = ({ className, src, alt }) => (
+export const Image: FC<Props> = ({
+    'data-test': dataTest,
+    src,
+    alt,
+    className
+}) => (
     <figure className={className}>
-        <img loading="lazy" src={src} alt={alt} />
+        <img data-test={dataTest} loading="lazy" src={src} alt={alt} />
     </figure>
 );

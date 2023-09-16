@@ -18,8 +18,13 @@ export const CountryCard: FC<Props> = ({
         capital = []
     }
 }) => (
-    <Div className="country-card">
-        <CountryCardImage src={src} countryName={countryName} alt={alt} />
+    <Div data-test="country-card" className="country-card">
+        <CountryCardImage
+            data-test="country-card-image"
+            src={src}
+            countryName={countryName}
+            alt={alt}
+        />
         <CountryCardFooter
             countryName={countryName}
             population={population}

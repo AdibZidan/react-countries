@@ -13,7 +13,7 @@ export const ThemeSwitcher: FC = () => {
     return (
         <Button onClick={handleThemeSwitch}>
             <ThemeIcon theme={theme} />
-            <Inline>{iconText}</Inline>
+            <Inline data-test="theme-switcher-text">{iconText}</Inline>
         </Button>
     );
 };
