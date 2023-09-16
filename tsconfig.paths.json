@@ -4,7 +4,10 @@
     "paths": {
       "@ui": ["src/shared/ui"],
       "@request": ["src/shared/services"],
-      "@mocks": ["src/shared/mocks"]
+      "@mocks": ["src/shared/mocks"],
+      "@badeball/cypress-cucumber-preprocessor/*": [
+        "./node_modules/@badeball/cypress-cucumber-preprocessor/dist/subpath-entrypoints/*"
+      ]
     }
   }
 }
