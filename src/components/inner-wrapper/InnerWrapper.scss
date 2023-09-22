@@ -1,6 +1,6 @@
 @use "src/assets/mixins/widths";
 
-$justifyContentTypes: between, around, evenly;
+$justifyContentTypes: space-between, space-around, space-evenly, center;
 
 body {
     div {
@@ -12,8 +12,8 @@ body {
             padding: 12px;
 
             @each $type in $justifyContentTypes {
-                &.space-#{$type} {
-                    justify-content: space-#{$type};
+                &.#{$type} {
+                    justify-content: #{$type};
                 }
             }
 

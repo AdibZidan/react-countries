@@ -6,7 +6,11 @@ import './InnerWrapper.scss';
 
 interface Props {
     children: ReactNode;
-    justifyContent?: 'space-between' | 'space-around' | 'space-evenly';
+    justifyContent?:
+        | 'space-between'
+        | 'space-around'
+        | 'space-evenly'
+        | 'center';
     wrap?: boolean;
 }
 
