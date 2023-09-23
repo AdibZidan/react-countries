@@ -1,3 +1,5 @@
+@use "src/assets/mixins/colors";
+
 @media (hover: hover) {
     body {
         button {
@@ -13,9 +15,61 @@
 }
 
 body {
+    &.light {
+        button {
+            &.primary,
+            &.secondary {
+                color: colors.$lightColor;
+                background: colors.$lightPrimaryBC;
+            }
+
+            &.secondary {
+                box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+            }
+        }
+    }
+
+    &.dark {
+        button {
+            &.primary,
+            &.secondary {
+                color: colors.$darkColor;
+                background: colors.$darkPrimaryBC;
+            }
+
+            &.secondary {
+                box-shadow: 0 0 6px 0 colors.$lightColor;
+            }
+        }
+    }
+
     button {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
         outline: none;
         border: none;
-        background-color: transparent;
+        border-radius: 4px;
+        transition: background 0.5s ease-in-out, color 0.5s ease-in-out,
+            box-shadow 0.5s ease-in-out;
+
+        &.primary {
+            width: 110px;
+        }
+
+        &.secondary {
+            padding: 8px;
+            width: 100px;
+        }
+
+        svg {
+            height: 1rem;
+            width: 20px;
+        }
+
+        span {
+            margin-right: 10px;
+            font-size: 0.7rem;
+        }
     }
 }
