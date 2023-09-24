@@ -1,3 +1,4 @@
+export { LeftArrowIcon } from './icons';
 export { Button } from './Button';
 export { Div } from './Div';
 export { Footer } from './Footer';
