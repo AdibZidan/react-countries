@@ -1,0 +1,19 @@
+@use "src/assets/mixins/colors";
+
+body {
+    &.light {
+        p {
+            color: colors.$lightColor;
+        }
+    }
+
+    &.dark {
+        p {
+            color: colors.$darkColor;
+        }
+    }
+
+    p {
+        transition: 0.5s color ease-in-out;
+    }
+}

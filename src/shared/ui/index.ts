@@ -6,4 +6,5 @@ export { Header } from './Header';
 export { Heading } from './Heading';
 export { Image } from './Image';
 export { Inline } from './Inline';
+export { Paragraph } from './Paragraph';
 export { Section } from './Section';
