@@ -34,7 +34,3 @@ Then('I see the following country card information:', (dataTable: DataTable) =>
                 .should('contain', CAPITAL);
         })
 );
-
-Then('I click on the {string} country card', (countryName: string) =>
-    cy.get('[data-test="country-card-heading"]').contains(countryName).click()
-);

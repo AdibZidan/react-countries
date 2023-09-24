@@ -13,6 +13,7 @@ Feature: Country List
       | https://flagcdn.com/w320/at.png | Austria | 8,917,205  | Europe | Vienna   |
 
   Scenario: I am navigated to the country detail page
-    Given I am in the country list page
-    When I click on the "Syria" country card
+    Given I successfully intercept "Syria" country's detail API
+    When I am in the country list page
+    And I click on the "Syria" country card
     Then I verify that the url includes "/detail/Syria"

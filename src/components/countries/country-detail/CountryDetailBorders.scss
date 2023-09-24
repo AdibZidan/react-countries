@@ -1,0 +1,30 @@
+body {
+    div {
+        &.country-detail-borders-loading {
+            margin-top: 50px;
+        }
+
+        &.country-detail-borders {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            column-gap: 16px;
+
+            .country-detail-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                width: 600px;
+
+                button {
+                    display: block;
+                    margin: 6px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}

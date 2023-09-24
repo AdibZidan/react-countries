@@ -1,0 +1,18 @@
+body {
+    p {
+        &.country-detail-information {
+            span {
+                font-size: 1.1rem;
+
+                &.label {
+                    margin-right: 6px;
+                    font-weight: 500;
+                }
+
+                &.value {
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+}
