@@ -6,15 +6,22 @@ interface Props {
     className?: 'primary' | 'secondary';
     onClick?: () => void;
     isDisabled?: boolean;
+    'data-test'?: string;
 }
 
 export const Button: FC<Props> = ({
     children,
     className = 'primary',
     onClick = () => {},
-    isDisabled = false
+    isDisabled = false,
+    'data-test': dataTest
 }) => (
-    <button className={className} onClick={onClick} disabled={isDisabled}>
+    <button
+        data-test={dataTest}
+        className={className}
+        onClick={onClick}
+        disabled={isDisabled}
+    >
         {children}
     </button>
 );
