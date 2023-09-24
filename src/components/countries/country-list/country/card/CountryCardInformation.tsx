@@ -1,4 +1,4 @@
-import { Inline } from '@ui';
+import { Inline, Paragraph } from '@ui';
 import { FC } from 'react';
 import { composeCountryCardValue } from '../services';
 import './CountryCardInformation.scss';
@@ -14,10 +14,10 @@ export const CountryCardInformation: FC<Props> = ({
     label,
     value
 }) => (
-    <p data-test={dataTest} className="country-card-information">
+    <Paragraph data-test={dataTest} className="country-card-information">
         <Inline className="label" strong>
             {label}:{' '}
         </Inline>
         <Inline className="value">{composeCountryCardValue(value)}</Inline>
-    </p>
+    </Paragraph>
 );
