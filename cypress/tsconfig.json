@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "types": ["cypress", "./support"]
+  },
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts"]
+}
