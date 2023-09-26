@@ -5,21 +5,21 @@ import { CountryName } from 'cypress/e2e/shared/types';
 import '../country-list/index.cy';
 
 Then('I click on the Back button', () =>
-    cy.get('[data-test="country-detail-navigate-back-button"]').click()
+    cy.getByDataTest('country-detail-navigate-back-button').click()
 );
 
 Then('I see the {string} country detail name', (countryName: CountryName) =>
     cy
-        .get('[data-test="country-detail-heading"]')
+        .getByDataTest('country-detail-heading')
         .should('contain.text', countryName)
 );
 
 Then('I verify the following country details:', (dataTable: DataTable) =>
     dataTable.hashes().forEach(({ LABEL, VALUE }, index) => {
-        cy.get('[data-test="country-detail-information-label"]')
+        cy.getByDataTest('country-detail-information-label')
             .eq(index)
             .should('contain', LABEL);
-        cy.get('[data-test="country-detail-information-value"]')
+        cy.getByDataTest('country-detail-information-value')
             .eq(index)
             .should('contain', VALUE);
     })
@@ -41,9 +41,9 @@ Then(
 );
 
 Then('I verify the country detail has {string} image source', (src: string) =>
-    cy.get('[data-test="country-detail-image"]').should('have.attr', 'src', src)
+    cy.getByDataTest('country-detail-image').should('have.attr', 'src', src)
 );
 
 Then('I click on {string} border country', (borderCountryName: string) =>
-    cy.get(`[data-test="country-detail-${borderCountryName}-button"]`).click()
+    cy.getByDataTest(`country-detail-${borderCountryName}-button`).click()
 );

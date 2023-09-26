@@ -51,7 +51,7 @@ Then(
 );
 
 Then('I click on the {string} country card', (countryName: string) =>
-    cy.get('[data-test="country-card-heading"]').contains(countryName).click()
+    cy.getByDataTest('country-card-heading').contains(countryName).click()
 );
 
 Then('I verify that the url includes {string}', (url: string) =>

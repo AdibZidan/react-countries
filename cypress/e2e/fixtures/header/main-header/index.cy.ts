@@ -7,22 +7,19 @@ const dictionary: Record<'moon' | 'sun', 'Moon Icon' | 'Sun Icon'> = {
 };
 
 Then('I see {string} title', (title: string) =>
-    cy.get('[data-test="main-title"]').should('contain', title)
+    cy.getByDataTest('main-title').should('contain', title)
 );
 
 Then(
     'I see the theme switcher {string} icon with the text {string}',
     (icon: 'moon' | 'sun', value: string) => {
-        cy.get(`[data-test="${icon}-icon"]`).should(
-            'contain',
-            dictionary[icon]
-        );
-        cy.get('[data-test="theme-switcher-text"]').should('contain', value);
+        cy.getByDataTest(`${icon}-icon`).should('contain', dictionary[icon]);
+        cy.getByDataTest('theme-switcher-text').should('contain', value);
     }
 );
 
 When('I click on the {string} theme-switcher icon', (icon: 'moon' | 'sun') =>
-    cy.get(`[data-test="${icon}-icon"]`).click()
+    cy.getByDataTest(`${icon}-icon`).click()
 );
 
 Then('I see a {string} background color', (backgroundColor: 'light' | 'dark') =>
