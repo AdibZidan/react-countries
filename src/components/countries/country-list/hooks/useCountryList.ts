@@ -1,3 +1,4 @@
+import { useFilteredCountryListState } from '@hooks';
 import { request } from '@request';
 import { useEffect, useState } from 'react';
 import { Country } from '../../types';
@@ -11,7 +12,7 @@ interface HookResult {
 
 export const useCountryList = (): HookResult => {
     const [isLoading, setIsLoading] = useState(false);
-    const [countries, setCountries] = useState<Country[]>([]);
+    const { filteredCountries, setCountries } = useFilteredCountryListState();
     const [isWithError, setIsWithError] = useState(false);
 
     useEffect(() => {
@@ -19,14 +20,14 @@ export const useCountryList = (): HookResult => {
 
         request
             .get<Country[]>(composeCountryListUrl())
-            .then(countries => setCountries(countries))
+            .then(setCountries)
             .catch(() => setIsWithError(true))
             .finally(() => setIsLoading(false));
     }, []);
 
     return {
         isLoading,
-        countries,
+        countries: filteredCountries,
         isWithError
     };
 };

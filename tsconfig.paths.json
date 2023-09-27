@@ -5,6 +5,7 @@
       "@ui": ["src/shared/ui"],
       "@request": ["src/shared/services"],
       "@mocks": ["src/shared/mocks"],
+      "@hooks": ["src/shared/hooks"],
       "@badeball/cypress-cucumber-preprocessor/*": [
         "./node_modules/@badeball/cypress-cucumber-preprocessor/dist/subpath-entrypoints/*"
       ]

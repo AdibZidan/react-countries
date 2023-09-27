@@ -1,0 +1,57 @@
+@use "src/assets/mixins/colors";
+
+body {
+    &.light {
+        div {
+            &.country-list-input-filter-container {
+                input {
+                    background: colors.$lightPrimaryBC;
+                    color: colors.$lightColor;
+                }
+
+                &::placeholder {
+                    color: colors.$lightColor;
+                }
+            }
+        }
+    }
+
+    &.dark {
+        div {
+            &.country-list-input-filter-container {
+                input {
+                    background: colors.$darkPrimaryBC;
+                    color: colors.$darkColor;
+
+                    &::placeholder {
+                        color: colors.$darkColor;
+                    }
+                }
+            }
+        }
+    }
+
+    div {
+        &.country-list-input-filter-container {
+            label {
+                &.visually-hidden-label {
+                    display: none;
+                }
+            }
+
+            input {
+                padding: 20px 12px;
+                width: 475px;
+                border: none;
+                border-radius: 6px;
+                outline: none;
+                font-size: 1rem;
+                transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+
+                &::placeholder {
+                    transition: color 0.5s ease-in-out;
+                }
+            }
+        }
+    }
+}

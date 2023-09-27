@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { InnerWrapper } from '../../inner-wrapper';
 import { CountryCard } from './country';
 import './CountryList.scss';
+import { CountryListInputFilter } from './filter';
 import { useCountryList } from './hooks';
 
 export const CountryList: FC = () => {
@@ -30,6 +31,9 @@ export const CountryList: FC = () => {
 
     return (
         <Section className="country-list">
+            <InnerWrapper>
+                <CountryListInputFilter />
+            </InnerWrapper>
             <InnerWrapper justifyContent="space-around" wrap>
                 {countries.map(country => (
                     <CountryCard key={country.name.common} country={country} />
