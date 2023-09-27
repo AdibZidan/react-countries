@@ -8,24 +8,24 @@ interface State {
 
 interface Methods {
     setCountries: (countries: Country[]) => void;
-    setFilteredCountries: (countries: Country[], searchTerm: string) => void;
+    setFilteredCountries: (searchTerm: string) => void;
 }
 
 type Zustand = State & Methods;
 
-export const useFilteredCountryListState = create<Zustand>()(setState => {
-    return {
+export const useFilteredCountryListState = create<Zustand>()(
+    (setState, getState) => ({
         countries: [],
         filteredCountries: [],
         setCountries: countries =>
             setState({ countries, filteredCountries: countries }),
-        setFilteredCountries: (initialCountries, searchTerm) => {
+        setFilteredCountries: searchTerm => {
             setState({
-                filteredCountries: initialCountries.filter(
+                filteredCountries: getState().countries.filter(
                     ({ name: { common } }) =>
                         common.toLowerCase().includes(searchTerm.toLowerCase())
                 )
             });
         }
-    };
-});
+    })
+);

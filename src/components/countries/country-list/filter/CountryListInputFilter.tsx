@@ -4,13 +4,13 @@ import { FC } from 'react';
 import './CountryListInputFilter.scss';
 
 export const CountryListInputFilter: FC = () => {
-    const { countries, setFilteredCountries } = useFilteredCountryListState();
+    const { setFilteredCountries } = useFilteredCountryListState();
 
     const handleOnChange = ({
         target: { value }
     }: {
         target: { value: string };
-    }) => setFilteredCountries(countries, value);
+    }) => setFilteredCountries(value);
 
     return (
         <Div
