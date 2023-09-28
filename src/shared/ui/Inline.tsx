@@ -6,17 +6,19 @@ interface Props {
     'data-test'?: string;
     className?: string;
     strong?: boolean;
+    onClick?: () => void;
 }
 
 export const Inline: FC<Props> = ({
     children,
     'data-test': dataTest,
     className,
-    strong = false
+    strong = false,
+    onClick = () => {}
 }) => {
     if (strong) {
         return (
-            <strong>
+            <strong onClick={onClick}>
                 <span data-test={dataTest} className={className}>
                     {children}
                 </span>
@@ -25,7 +27,7 @@ export const Inline: FC<Props> = ({
     }
 
     return (
-        <span data-test={dataTest} className={className}>
+        <span data-test={dataTest} className={className} onClick={onClick}>
             {children}
         </span>
     );
