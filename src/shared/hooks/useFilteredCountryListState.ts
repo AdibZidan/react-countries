@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { Country } from '../../components/countries/types';
 
+type FilterType = 'name' | 'region';
+
 interface State {
     countries: Country[];
     filteredCountries: Country[];
@@ -8,7 +10,8 @@ interface State {
 
 interface Methods {
     setCountries: (countries: Country[]) => void;
-    setFilteredCountries: (searchTerm: string) => void;
+    setFilteredCountries: (searchTerm: string, type: FilterType) => void;
+    reset: () => void;
 }
 
 type Zustand = State & Methods;
@@ -19,13 +22,26 @@ export const useFilteredCountryListState = create<Zustand>()(
         filteredCountries: [],
         setCountries: countries =>
             setState({ countries, filteredCountries: countries }),
-        setFilteredCountries: searchTerm => {
+        setFilteredCountries: (searchTerm, type) =>
             setState({
                 filteredCountries: getState().countries.filter(
-                    ({ name: { common } }) =>
-                        common.toLowerCase().includes(searchTerm.toLowerCase())
+                    ({ name: { common }, region }) => {
+                        if (type === 'name') {
+                            return common
+                                .toLowerCase()
+                                .includes(searchTerm.toLowerCase());
+                        }
+
+                        return region
+                            .toLowerCase()
+                            .includes(searchTerm.toLowerCase());
+                    }
                 )
-            });
-        }
+            }),
+        reset: () =>
+            setState({
+                countries: getState().countries,
+                filteredCountries: getState().countries
+            })
     })
 );

@@ -10,7 +10,7 @@ export const CountryListInputFilter: FC = () => {
         target: { value }
     }: {
         target: { value: string };
-    }) => setFilteredCountries(value);
+    }) => setFilteredCountries(value, 'name');
 
     return (
         <Div
