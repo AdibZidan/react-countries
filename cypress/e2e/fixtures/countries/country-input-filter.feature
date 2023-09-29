@@ -4,8 +4,8 @@ Feature: Country Input Filter
     Given I successfully intercept the country's list API
 
   Scenario: See the Filtered Country List
-    When I am in the country list page
-    Then I see the country list search input
+    Given I am in the country list page
+    When I see the country list search input
     And I type "s" in the country list filter
     Then I see a total of "2" countries
     And I see the following country card information:
