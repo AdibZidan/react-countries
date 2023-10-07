@@ -1,6 +1,6 @@
+import { useParams } from '@hooks';
 import { request } from '@request';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { CountryDetail } from '../../types';
 import { composeCountryDetail, composeCountryDetailUrl } from '../services';
 
