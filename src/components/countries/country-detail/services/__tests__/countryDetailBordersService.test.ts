@@ -5,8 +5,6 @@ import {
     makeBordersRequest
 } from '../countryDetailBordersService';
 
-vi.mock('@request');
-
 describe('#countryDetailBordersService()', () => {
     describe('#composeBordersUrl()', () => {
         it('returns single border code', () => {

@@ -1,20 +1,13 @@
-import { requestMock } from '@mocks';
+import { requestMock, useParamMock } from '@mocks';
 import { renderHook, waitFor } from '@testing-library/react';
-import { useParams } from 'react-router-dom';
-import { Mock } from 'vitest';
 import { useCountryDetail } from '../useCountryDetail';
-
-vi.mock('react-router-dom', async () => ({
-    ...(await vi.importActual<typeof import('react-router-dom')>(
-        'react-router-dom'
-    )),
-    useParams: vi.fn().mockImplementation(() => ({}))
-}));
-// TODO: Configure vitest to include this mock
-vi.mock('@request');
 
 describe('#useCountryDetail()', () => {
     it('returns isWithError true if there is no countryName param', async () => {
+        useParamMock.mockImplementation(() => ({
+            countryName: undefined
+        }));
+
         const { result } = renderHook(useCountryDetail);
 
         await waitFor(() => {
@@ -29,7 +22,7 @@ describe('#useCountryDetail()', () => {
     });
 
     it('returns the country detail state when given countryName param', async () => {
-        (useParams as Mock).mockImplementation(() => ({
+        useParamMock.mockImplementation(() => ({
             countryName: 'Syria'
         }));
         requestMock.get.mockImplementation(() =>
