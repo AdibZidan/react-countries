@@ -21,7 +21,7 @@ export const InnerWrapper: FC<Props> = ({
 }) => {
     const className = classNames('inner-wrapper', {
         [justifyContent]: justifyContent,
-        wrap: wrap
+        wrap
     });
 
     return <Div className={className}>{children}</Div>;
