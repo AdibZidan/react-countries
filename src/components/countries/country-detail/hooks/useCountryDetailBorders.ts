@@ -1,29 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useQuery } from 'react-query';
 import { makeBordersRequest } from '../services';
 
 interface HookResult {
     isLoading: boolean;
-    borderNames: string[];
     isWithError: boolean;
+    borderNames: string[];
 }
 
 export const useCountryDetailBorders = (borders: string[]): HookResult => {
-    const [isLoading, setIsLoading] = useState(false);
     const [borderNames, setBorderNames] = useState<string[]>([]);
-    const [isWithError, setIsWithError] = useState(false);
-
-    useEffect(() => {
-        setIsLoading(true);
-
-        makeBordersRequest(borders)
-            .then(setBorderNames)
-            .catch(() => setIsWithError(true))
-            .finally(() => setIsLoading(false));
-    }, [borders]);
+    const { isLoading, error } = useQuery(
+        `country-detail-borders-${borders}`,
+        () => makeBordersRequest(borders).then(setBorderNames)
+    );
 
     return {
         isLoading,
-        borderNames,
-        isWithError
+        isWithError: Boolean(error),
+        borderNames
     };
 };

@@ -1,33 +1,24 @@
 import { useFilteredCountryListState } from '@hooks';
 import { request } from '@request';
-import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { Country } from '../../types';
 import { composeCountryListUrl } from '../services';
 
 interface HookResult {
     isLoading: boolean;
-    countries: Country[];
     isWithError: boolean;
+    countries: Country[];
 }
 
 export const useCountryList = (): HookResult => {
-    const [isLoading, setIsLoading] = useState(false);
     const { filteredCountries, setCountries } = useFilteredCountryListState();
-    const [isWithError, setIsWithError] = useState(false);
-
-    useEffect(() => {
-        setIsLoading(true);
-
-        request
-            .get<Country[]>(composeCountryListUrl())
-            .then(setCountries)
-            .catch(() => setIsWithError(true))
-            .finally(() => setIsLoading(false));
-    }, []);
+    const { isLoading, error } = useQuery('country-list', () =>
+        request.get<Country[]>(composeCountryListUrl()).then(setCountries)
+    );
 
     return {
         isLoading,
-        countries: filteredCountries,
-        isWithError
+        isWithError: Boolean(error),
+        countries: filteredCountries
     };
 };
