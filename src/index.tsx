@@ -8,7 +8,10 @@ import './index.scss';
 const root = document.getElementById('root') as HTMLElement;
 const queryClient = new QueryClient({
     defaultOptions: {
-        queries: { refetchOnWindowFocus: false }
+        queries: {
+            refetchOnWindowFocus: false,
+            retry: false
+        }
     }
 });
 
