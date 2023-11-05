@@ -7,10 +7,10 @@ body {
                 input {
                     background: colors.$lightPrimaryBC;
                     color: colors.$lightColor;
-                }
 
-                &::placeholder {
-                    color: colors.$lightColor;
+                    &::placeholder {
+                        color: colors.$lightColor;
+                    }
                 }
             }
         }
