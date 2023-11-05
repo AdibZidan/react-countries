@@ -1,16 +1,28 @@
-import { useFilteredCountryListState } from '@hooks';
+import { useFilteredCountryListState, useSearchParams } from '@hooks';
 import { Div } from '@ui';
 import { FC } from 'react';
 import './CountryListInputFilter.scss';
 
 export const CountryListInputFilter: FC = () => {
     const { setFilteredCountries } = useFilteredCountryListState();
+    const {
+        paramName: countryNameParam,
+        updateParam,
+        resetParam
+    } = useSearchParams('countryName');
 
     const handleOnChange = ({
         target: { value }
     }: {
         target: { value: string };
-    }) => setFilteredCountries(value, 'name');
+    }) => {
+        updateParam(value);
+        setFilteredCountries(value, 'name');
+
+        if (value.length === 0) {
+            resetParam();
+        }
+    };
 
     return (
         <Div
@@ -30,6 +42,7 @@ export const CountryListInputFilter: FC = () => {
                 name="country-list-input-filter"
                 id="country-list-input-filter"
                 type="text"
+                value={countryNameParam}
                 onChange={handleOnChange}
             />
         </Div>

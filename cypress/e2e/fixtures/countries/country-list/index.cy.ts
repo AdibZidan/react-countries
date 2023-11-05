@@ -1,5 +1,6 @@
 import { DataTable, Then } from '@badeball/cypress-cucumber-preprocessor';
 import 'cypress/e2e/fixtures/countries/country-input-filter/index.cy';
+import 'cypress/e2e/fixtures/countries/country-input-region-filter/index.cy';
 import 'cypress/e2e/shared/steps/shared-steps.index.cy';
 
 Then('I see a total of {string} countries', (total: number) =>

@@ -1,5 +1,6 @@
 export { LeftArrowIcon } from './icons';
 export { Button } from './Button';
+export { Details } from './Details';
 export { Div } from './Div';
 export { Footer } from './Footer';
 export { Header } from './Header';

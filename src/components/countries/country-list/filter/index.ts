@@ -1,1 +1,1 @@
-export { CountryListInputFilter } from './CountryListInputFilter';
+export { CountryListFilters } from './CountryListFilters';

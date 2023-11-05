@@ -1,0 +1,37 @@
+@use "src/assets/mixins/colors";
+
+body {
+    &.light {
+        details {
+            background: colors.$lightPrimaryBC;
+
+            summary {
+                color: colors.$lightColor;
+            }
+        }
+    }
+
+    &.dark {
+        details {
+            background: colors.$darkPrimaryBC;
+
+            summary {
+                color: colors.$darkColor;
+            }
+        }
+    }
+
+    details {
+        padding: 16px;
+        border-radius: 8px;
+        transition: background 0.5s ease-in-out;
+
+        summary {
+            transition: color 0.5s ease-in-out;
+        }
+
+        hr {
+            margin: 12px 0;
+        }
+    }
+}

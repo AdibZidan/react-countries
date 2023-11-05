@@ -1,0 +1,44 @@
+@use "src/assets/mixins/colors";
+
+@media (hover: hover) {
+    div {
+        &.country-list-region-dropdown-container {
+            cursor: pointer;
+        }
+    }
+}
+
+body {
+    div {
+        &.country-list-region-dropdown-container {
+            position: relative;
+            width: 164px;
+
+            details {
+                position: absolute;
+
+                div {
+                    &.country-list-region-dropdown-values {
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: 8px;
+                        padding: 2px;
+
+                        span {
+                            margin: 4px 0;
+
+                            &.selected {
+                                font-weight: bolder;
+                            }
+                        }
+                    }
+                }
+
+                button {
+                    margin-top: 6px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
