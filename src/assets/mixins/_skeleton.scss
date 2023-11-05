@@ -1,0 +1,18 @@
+@use "./colors";
+
+$lightBG: linear-gradient(90deg, #ddda 40%, #efefefaa, #ddda 60%) right / 300%
+    100%;
+$darkBG: linear-gradient(
+        90deg,
+        colors.$darkPrimaryBC 40%,
+        hsl(209deg 20.25% 20.4%),
+        colors.$darkPrimaryBC 60%
+    )
+    right / 300% 100%;
+$animation: skeleton-loading 2.5s linear infinite;
+
+@keyframes skeleton-loading {
+    to {
+        background-position: left;
+    }
+}

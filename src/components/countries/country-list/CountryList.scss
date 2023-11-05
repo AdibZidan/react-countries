@@ -1,13 +1,10 @@
 body {
     section {
-        &.country-list-loading,
-        &.country-list-error {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-
+        &.country-list {
             span {
-                font-size: 2rem;
+                &.info {
+                    font-size: 2rem;
+                }
             }
         }
     }

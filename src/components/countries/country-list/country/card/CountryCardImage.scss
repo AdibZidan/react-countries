@@ -1,15 +1,38 @@
+@use "src/assets/mixins/skeleton";
+
+@media (hover: hover) {
+    figure {
+        &.country-card-image-loading {
+            cursor: progress;
+        }
+    }
+}
+
 body {
     &.light {
         figure {
             &.country-card-image {
                 box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
             }
+
+            &.country-card-image-loading {
+                background: skeleton.$lightBG;
+            }
+        }
+    }
+
+    &.dark {
+        figure {
+            &.country-card-image-loading {
+                background: skeleton.$darkBG;
+            }
         }
     }
 }
 
 figure {
-    &.country-card-image {
+    &.country-card-image,
+    &.country-card-image-loading {
         width: 280px;
         height: 140px;
 
@@ -18,5 +41,10 @@ figure {
             height: 100%;
             border-radius: 6px 6px 0 0;
         }
+    }
+
+    &.country-card-image-loading {
+        border-radius: 6px 6px 0 0;
+        animation: skeleton.$animation;
     }
 }
