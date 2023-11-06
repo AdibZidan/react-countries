@@ -27,7 +27,7 @@ export const CountryListRegions: FC = () => {
     };
 
     return (
-        <Details openOnLoad={Boolean(regionParam)} title="Filter by Region">
+        <Details openOnLoad={Boolean(regionParam)} title="Filter By Region">
             <Div className="country-list-region-dropdown-values">
                 {regions.map(region => {
                     const className = classNames({
