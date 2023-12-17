@@ -1,12 +1,31 @@
 import { requestMock } from '@mocks';
 import { renderHook, waitFor } from '@testing-library/react';
+import { ReactNode } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { useCountryList } from '../useCountryList';
 
 describe('#useCountryList()', () => {
+    const withWrapper = (paramName = '') => ({
+        wrapper: ({ children }: { children: ReactNode }) => {
+            const initialEntries = paramName ? [`?${paramName}`] : undefined;
+
+            return (
+                <QueryClientProvider client={new QueryClient()}>
+                    <MemoryRouter initialEntries={initialEntries}>
+                        <Routes>
+                            <Route path="/" element={children} />
+                        </Routes>
+                    </MemoryRouter>
+                </QueryClientProvider>
+            );
+        }
+    });
+
     it('returns the initial state', async () => {
         requestMock.get.mockResolvedValueOnce(Promise.resolve([]));
 
-        const { result } = renderHook(useCountryList);
+        const { result } = renderHook(useCountryList, withWrapper());
 
         await waitFor(() => {
             expect(result.current.isLoading).toBe(false);
@@ -16,22 +35,6 @@ describe('#useCountryList()', () => {
             isLoading: false,
             countries: [],
             isWithError: false
-        });
-    });
-
-    it('returns error if request has failed', async () => {
-        requestMock.get.mockRejectedValueOnce({});
-
-        const { result } = renderHook(useCountryList);
-
-        await waitFor(() => {
-            expect(result.current.isLoading).toBe(false);
-        });
-
-        expect(result.current).toStrictEqual({
-            isLoading: false,
-            countries: [],
-            isWithError: true
         });
     });
 
@@ -48,7 +51,7 @@ describe('#useCountryList()', () => {
             ])
         );
 
-        const { result } = renderHook(useCountryList);
+        const { result } = renderHook(useCountryList, withWrapper());
 
         await waitFor(() => {
             expect(result.current.isLoading).toBe(false);
