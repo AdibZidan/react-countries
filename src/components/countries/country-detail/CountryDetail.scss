@@ -11,12 +11,13 @@ body {
 
         &.country-detail {
             figure {
-                width: 500px;
+                width: 385px;
+                height: 250px;
+                margin-right: 8px;
 
                 img {
                     width: 100%;
                     height: 100%;
-                    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
                 }
             }
 
@@ -25,10 +26,17 @@ body {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+                    flex: 1;
                     column-gap: 12px;
 
+                    &.center {
+                        margin: auto;
+                    }
+
                     h2 {
-                        margin-bottom: 30px;
+                        &.country-detail-heading {
+                            margin-bottom: 30px;
+                        }
                     }
 
                     .country-detail-information-section {

@@ -1,0 +1,12 @@
+@use "src/assets/mixins/skeleton";
+
+body {
+    figure {
+        &.country-detail-image-skeleton {
+            width: 385px;
+            height: 250px;
+            background: skeleton.$lightBG;
+            animation: skeleton.$animation;
+        }
+    }
+}

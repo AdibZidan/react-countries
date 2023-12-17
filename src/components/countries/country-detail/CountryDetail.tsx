@@ -5,6 +5,7 @@ import './CountryDetail.scss';
 import { CountryFocusPage } from './CountryFocusPage';
 import { CountryInformation } from './CountryInformation';
 import { useCountryDetail } from './hooks';
+import { CountryDetailSkeleton } from './skeleton';
 
 export const CountryDetail: FC = () => {
     const { isLoading, isWithError, country } = useCountryDetail();
@@ -12,22 +13,22 @@ export const CountryDetail: FC = () => {
     if (isLoading) {
         return (
             <CountryFocusPage className="country-detail-loading">
-                <InnerWrapper justifyContent="center">
-                    <Inline>Country Detail is loading...</Inline>
-                </InnerWrapper>
+                <CountryDetailSkeleton />
             </CountryFocusPage>
         );
     }
 
-    if (isWithError) {
+    if (isWithError || !country) {
         return (
             <CountryFocusPage className="country-detail-error">
                 <InnerWrapper justifyContent="center">
-                    <Inline>Country Detail api failed...</Inline>
+                    <Inline data-test="country-detail-error-message">
+                        Country Detail api failed...
+                    </Inline>
                 </InnerWrapper>
             </CountryFocusPage>
         );
     }
 
-    return <>{country && <CountryInformation country={country} />}</>;
+    return <CountryInformation country={country} />;
 };

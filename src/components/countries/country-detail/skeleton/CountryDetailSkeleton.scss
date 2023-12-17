@@ -1,0 +1,48 @@
+@use "src/assets/mixins/skeleton";
+
+section {
+    &.country-detail-loading {
+        div {
+            &.country-detail-divider-skeleton {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                flex: 1;
+                margin: 12px;
+
+                h2,
+                p {
+                    height: 4px;
+                    animation: skeleton.$animation;
+                    background: skeleton.$lightBG;
+                }
+
+                h2 {
+                    width: 40%;
+                }
+
+                .skeleton-container {
+                    display: flex;
+                    justify-content: space-between;
+                    column-gap: 24px;
+
+                    div {
+                        width: 50%;
+
+                        p {
+                            margin: 10px 0;
+
+                            &:nth-child(1) {
+                                width: 80%;
+                            }
+
+                            &:last-child {
+                                width: 50%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

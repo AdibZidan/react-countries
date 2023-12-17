@@ -11,7 +11,7 @@ Then(
 Then('I see the country list card skeletons', () => {
     const TOTAL_ELEMENTS = 30;
 
-    cy.get('section').within(() =>
+    cy.getByDataTest('country-list-loading').within(() =>
         cy
             .getByDataTest('country-list-skeleton-card')
             .should('be.visible')

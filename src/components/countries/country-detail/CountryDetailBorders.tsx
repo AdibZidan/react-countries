@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './CountryDetailBorders.scss';
 import { useCountryDetailBorders } from './hooks';
 import { composeCountryDetailBorderHeadline } from './services';
+import { CountryDetailButtonsSkeleton } from './skeleton';
 
 interface Props {
     borders: string[];
@@ -15,13 +16,7 @@ export const CountryDetailBorders: FC<Props> = ({ borders }) => {
         useCountryDetailBorders(borders);
 
     if (isLoading) {
-        return (
-            <Div className="country-detail-borders-loading">
-                <Heading data-test="country-detail-borders-heading" level={3}>
-                    Country detail borders loading...
-                </Heading>
-            </Div>
-        );
+        return <CountryDetailButtonsSkeleton />;
     }
 
     if (isWithError) {

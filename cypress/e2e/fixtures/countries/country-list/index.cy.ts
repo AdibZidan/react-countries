@@ -3,6 +3,18 @@ import 'cypress/e2e/fixtures/countries/country-input-filter/index.cy';
 import 'cypress/e2e/fixtures/countries/country-input-region-filter/index.cy';
 import 'cypress/e2e/shared/steps/shared-steps.index.cy';
 
+Then(
+    'I see a total of {string} skeleton countries placeholder',
+    (total: number) =>
+        cy
+            .getByDataTest('country-list-loading')
+            .within(() =>
+                cy
+                    .getByDataTest('country-list-skeleton-card')
+                    .should('have.length', total)
+            )
+);
+
 Then('I see a total of {string} countries', (total: number) =>
     cy.getByDataTest('country-card').should('have.length', total)
 );

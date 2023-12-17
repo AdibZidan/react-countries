@@ -1,0 +1,39 @@
+@use "src/assets/mixins/skeleton";
+
+body {
+    footer {
+        &.country-detail-buttons-skeleton {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            column-gap: 16px;
+            width: 600px;
+
+            h2 {
+                width: 40%;
+                height: 4px;
+                animation: skeleton.$animation;
+                background: skeleton.$lightBG;
+            }
+
+            div {
+                &.buttons {
+                    display: flex;
+                    flex: 1;
+                    flex-wrap: wrap;
+                    max-width: 100%;
+                }
+
+                &.button {
+                    margin: 6px 6px 6px 0;
+                    padding: 8px;
+                    width: 100px;
+                    height: 15px;
+                    animation: skeleton.$animation;
+                    background: skeleton.$lightBG;
+                }
+            }
+        }
+    }
+}

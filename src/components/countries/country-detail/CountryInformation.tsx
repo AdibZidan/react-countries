@@ -1,8 +1,10 @@
-import { Div, Heading, Image } from '@ui';
+import { Div, Heading } from '@ui';
+import classNames from 'classnames';
 import { FC } from 'react';
 import { InnerWrapper } from '../../inner-wrapper';
 import { CountryDetail } from '../types';
 import { CountryDetailBorders } from './CountryDetailBorders';
+import { CountryDetailImage } from './CountryDetailImage';
 import { CountryDetailInformation } from './CountryDetailInformation';
 import { CountryFocusPage } from './CountryFocusPage';
 import {
@@ -33,13 +35,27 @@ export const CountryInformation: FC<Props> = ({
 }) => {
     const showInformationSection =
         topLevelDomains.length > 0 || currencies || languages;
+    const showBorders = borders.length > 0;
 
     return (
         <CountryFocusPage className="country-detail">
             <InnerWrapper>
-                <Image data-test="country-detail-image" src={src} alt={alt} />
-                <Div className="divider">
-                    <Heading data-test="country-detail-heading" level={2}>
+                <CountryDetailImage
+                    src={src}
+                    alt={alt}
+                    countryName={countryName}
+                />
+                <Div
+                    className={classNames({
+                        divider: true,
+                        center: !showBorders && 'center'
+                    })}
+                >
+                    <Heading
+                        data-test="country-detail-heading"
+                        className="country-detail-heading"
+                        level={2}
+                    >
                         {countryName}
                     </Heading>
                     <Div className="country-detail-information-section">
@@ -102,9 +118,7 @@ export const CountryInformation: FC<Props> = ({
                             </Div>
                         )}
                     </Div>
-                    {borders.length > 0 && (
-                        <CountryDetailBorders borders={borders} />
-                    )}
+                    {showBorders && <CountryDetailBorders borders={borders} />}
                 </Div>
             </InnerWrapper>
         </CountryFocusPage>

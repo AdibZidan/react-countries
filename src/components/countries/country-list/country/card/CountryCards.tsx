@@ -10,7 +10,11 @@ export const CountryCards: FC = () => {
 
     if (isLoading) {
         return (
-            <InnerWrapper justifyContent="space-around" wrap>
+            <InnerWrapper
+                data-test="country-list-loading"
+                justifyContent="space-around"
+                wrap
+            >
                 <CountryCardSkeleton />;
             </InnerWrapper>
         );

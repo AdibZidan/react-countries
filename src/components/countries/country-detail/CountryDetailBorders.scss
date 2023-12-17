@@ -11,11 +11,12 @@ body {
             align-items: center;
             margin-top: 50px;
             column-gap: 16px;
+            width: 600px;
 
             .country-detail-buttons {
                 display: flex;
                 flex-wrap: wrap;
-                width: 600px;
+                flex: 1;
 
                 button {
                     display: block;

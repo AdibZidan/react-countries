@@ -1,4 +1,4 @@
-import { Then, When } from '@badeball/cypress-cucumber-preprocessor';
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor';
 import {
     AUSTRIA,
     COUNTRY_DETAIL,
@@ -8,7 +8,11 @@ import {
 } from '../constants';
 import { CountryName } from '../types';
 
-When('I am in the country list page', () => cy.visit('/'));
+Given('I am in the country list page', () => cy.visit('/'));
+
+Given('I am in {string} country detail page', (countryName: CountryName) =>
+    cy.visit(`/detail/${countryName}`)
+);
 
 Then(`I successfully intercept the country's list API`, () =>
     cy.intercept('GET', '**/restcountries.com/**', {
@@ -48,6 +52,23 @@ Then(
             }
         );
     }
+);
+
+Then(
+    `I intercept {string} country's detail API with pending status`,
+    (countryName: CountryName) =>
+        cy.intercept('GET', `**/restcountries.com/v3.1/name/${countryName}`, {
+            body: [COUNTRY_DETAIL[countryName]],
+            delay: 10_000
+        })
+);
+
+Then(
+    `I intercept {string} country's detail API with error status`,
+    (countryName: CountryName) =>
+        cy.intercept('GET', `**/restcountries.com/v3.1/name/${countryName}`, {
+            forceNetworkError: true
+        })
 );
 
 Then('I click on the {string} country card', (countryName: string) =>
