@@ -6,6 +6,7 @@ import './InnerWrapper.scss';
 
 interface Props {
     children: ReactNode;
+    'data-test'?: string;
     justifyContent?:
         | 'space-between'
         | 'space-around'
@@ -16,6 +17,7 @@ interface Props {
 
 export const InnerWrapper: FC<Props> = ({
     children,
+    'data-test': dataTest,
     justifyContent = 'space-between',
     wrap = false
 }) => {
@@ -24,5 +26,9 @@ export const InnerWrapper: FC<Props> = ({
         wrap
     });
 
-    return <Div className={className}>{children}</Div>;
+    return (
+        <Div data-test={dataTest} className={className}>
+            {children}
+        </Div>
+    );
 };
