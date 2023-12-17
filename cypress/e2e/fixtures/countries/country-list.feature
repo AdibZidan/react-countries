@@ -4,10 +4,10 @@ Feature: Country List
     Given I successfully intercept the country's list API
 
   Scenario: See the Filter Input and the Country List
-    Given I am in the country list page
-    And I see the country list search input
-    When I see a total of "3" countries
-    Then I see the following country card information:
+    When I am in the country list page
+    Then I see the country list search filters
+    And I see a total of "3" countries
+    And I see the following country card information:
       | SRC                             | NAME    | POPULATION | REGION | CAPITAL  |
       | https://flagcdn.com/w320/sy.png | Syria   | 17,500,657 | Asia   | Damascus |
       | https://flagcdn.com/w320/ua.png | Ukraine | 44,134,693 | Europe | Kyiv     |
