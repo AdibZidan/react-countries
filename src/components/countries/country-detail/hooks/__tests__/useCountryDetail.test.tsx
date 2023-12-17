@@ -1,5 +1,6 @@
 import { requestMock, useParamMock } from '@mocks';
 import { renderHook, waitFor } from '@testing-library/react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { useCountryDetail } from '../useCountryDetail';
 
 describe('#useCountryDetail()', () => {
@@ -8,7 +9,13 @@ describe('#useCountryDetail()', () => {
             countryName: undefined
         }));
 
-        const { result } = renderHook(useCountryDetail);
+        const { result } = renderHook(useCountryDetail, {
+            wrapper: ({ children }) => (
+                <QueryClientProvider client={new QueryClient()}>
+                    {children}
+                </QueryClientProvider>
+            )
+        });
 
         await waitFor(() => {
             expect(result.current.isLoading).toBe(false);
@@ -35,7 +42,13 @@ describe('#useCountryDetail()', () => {
             ])
         );
 
-        const { result } = renderHook(useCountryDetail);
+        const { result } = renderHook(useCountryDetail, {
+            wrapper: ({ children }) => (
+                <QueryClientProvider client={new QueryClient()}>
+                    {children}
+                </QueryClientProvider>
+            )
+        });
 
         await waitFor(() => {
             expect(result.current.isLoading).toBe(false);

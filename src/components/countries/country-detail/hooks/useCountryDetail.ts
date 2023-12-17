@@ -29,7 +29,7 @@ export const useCountryDetail = (): HookResult => {
 
     return {
         isLoading,
-        isWithError: Boolean(error),
+        isWithError: Boolean(error || !countryName),
         country
     };
 };
