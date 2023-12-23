@@ -1,3 +1,21 @@
+@use "src/assets/mixins/widths";
+
+@media screen and (max-width: widths.$medium-screen) {
+    body {
+        div {
+            &.country-detail-borders {
+                h4 {
+                    font-size: 1.2rem;
+                }
+
+                .country-detail-buttons {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
+
 body {
     div {
         &.country-detail-borders-loading {

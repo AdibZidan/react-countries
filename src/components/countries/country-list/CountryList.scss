@@ -1,10 +1,24 @@
-body {
-    section {
-        &.country-list {
-            span {
-                &.info {
-                    font-size: 2rem;
+@use "src/assets/mixins/widths";
+
+@media screen and (max-width: widths.$medium-screen) {
+    body {
+        section {
+            &.country-list {
+                span {
+                    &.info {
+                        font-size: 1.8rem;
+                    }
                 }
+            }
+        }
+    }
+}
+
+section {
+    &.country-list {
+        span {
+            &.info {
+                font-size: 2rem;
             }
         }
     }

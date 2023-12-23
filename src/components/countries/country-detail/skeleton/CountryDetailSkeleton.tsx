@@ -4,7 +4,10 @@ import { CountryDetailButtonsSkeleton } from './CountryDetailButtonsSkeleton';
 import './CountryDetailSkeleton.scss';
 
 export const CountryDetailSkeleton: FC = () => (
-    <InnerWrapper data-test="country-detail-skeleton">
+    <InnerWrapper
+        data-test="country-detail-skeleton"
+        baseClassName="country-detail-skeleton"
+    >
         <figure
             data-test="country-detail-image-skeleton"
             className="country-detail-image-skeleton"

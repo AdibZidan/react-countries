@@ -14,6 +14,7 @@ import {
     composeCountryLanguagesLabel,
     composeNativeCountryName
 } from './services';
+import './CountryInformation.scss';
 
 interface Props {
     country: CountryDetail;
@@ -39,7 +40,7 @@ export const CountryInformation: FC<Props> = ({
 
     return (
         <CountryFocusPage className="country-detail">
-            <InnerWrapper>
+            <InnerWrapper baseClassName="country-detail-wrapper">
                 <CountryDetailImage
                     src={src}
                     alt={alt}

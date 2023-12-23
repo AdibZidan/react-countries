@@ -1,0 +1,28 @@
+@use "src/assets/mixins/widths";
+
+@media screen and (max-width: widths.$medium-screen) {
+    body {
+        div {
+            &.country-list-filters {
+                flex-direction: column;
+                margin-bottom: 30px;
+
+                div {
+                    &.country-list-input-filter-container {
+                        margin-bottom: 30px;
+
+                        input {
+                            width: 100%;
+                        }
+                    }
+
+                    &.country-list-region-dropdown-container {
+                        details {
+                            top: -20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

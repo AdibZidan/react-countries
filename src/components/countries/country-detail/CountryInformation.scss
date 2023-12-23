@@ -1,0 +1,31 @@
+@use "src/assets/mixins/widths";
+
+@media screen and (max-width: widths.$medium-screen) {
+    body {
+        div {
+            &.country-detail-wrapper {
+                flex-direction: column;
+
+                figure {
+                    width: 500px;
+                    margin: 0 auto 10px auto;
+                }
+
+                div {
+                    &.country-detail-borders {
+                        flex-direction: column;
+                        width: 100%;
+                    }
+                }
+
+                .divider {
+                    &.center {
+                        .country-detail-information-section {
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

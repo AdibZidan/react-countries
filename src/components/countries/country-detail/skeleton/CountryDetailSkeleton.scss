@@ -1,43 +1,65 @@
 @use "src/assets/mixins/skeleton";
+@use "src/assets/mixins/widths";
 
-section {
-    &.country-detail-loading {
-        div {
-            &.country-detail-divider-skeleton {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                flex: 1;
-                margin: 12px;
+@media screen and (max-width: widths.$medium-screen) {
+    body {
+        section {
+            &.country-detail-loading {
+                div {
+                    &.country-detail-skeleton {
+                        flex-direction: column;
 
-                h2,
-                p {
-                    height: 4px;
-                    animation: skeleton.$animation;
-                    background: skeleton.$lightBG;
+                        figure {
+                            width: 500px;
+                            margin: 0 auto 10px auto;
+                        }
+                    }
                 }
+            }
+        }
+    }
+}
 
-                h2 {
-                    width: 40%;
-                }
-
-                .skeleton-container {
+body {
+    section {
+        &.country-detail-loading {
+            div {
+                &.country-detail-divider-skeleton {
                     display: flex;
-                    justify-content: space-between;
-                    column-gap: 24px;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    flex: 1;
+                    margin: 12px;
 
-                    div {
-                        width: 50%;
+                    h2,
+                    p {
+                        height: 4px;
+                        animation: skeleton.$animation;
+                        background: skeleton.$lightBG;
+                    }
 
-                        p {
-                            margin: 10px 0;
+                    h2 {
+                        width: 40%;
+                    }
 
-                            &:nth-child(1) {
-                                width: 80%;
-                            }
+                    .skeleton-container {
+                        display: flex;
+                        justify-content: space-between;
+                        column-gap: 24px;
 
-                            &:last-child {
-                                width: 50%;
+                        div {
+                            width: 50%;
+
+                            p {
+                                margin: 10px 0;
+
+                                &:nth-child(1) {
+                                    width: 80%;
+                                }
+
+                                &:last-child {
+                                    width: 50%;
+                                }
                             }
                         }
                     }
