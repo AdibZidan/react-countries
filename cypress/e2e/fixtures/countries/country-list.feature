@@ -3,9 +3,9 @@ Feature: Country List
   Background:
     Given I successfully intercept the country's list API
 
-  Scenario: See the Filter Input and the Country List
+  Scenario: See the Filter Inputs and the Country List
     When I am in the country list page
-    Then I see the country list search filters
+    Then I see the country list filters
     And I see a total of "3" countries
     And I see the following country card information:
       | SRC                             | NAME    | POPULATION | REGION | CAPITAL  |

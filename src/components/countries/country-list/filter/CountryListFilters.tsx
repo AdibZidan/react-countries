@@ -11,7 +11,10 @@ export const CountryListFilters: FC = () => {
     useEffect(() => () => reset(), [reset]);
 
     return (
-        <InnerWrapper baseClassName="country-list-filters">
+        <InnerWrapper
+            data-test="country-list-filters"
+            baseClassName="country-list-filters"
+        >
             <CountryListInputFilter />
             <CountryListRegionDropdown />
         </InnerWrapper>

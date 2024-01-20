@@ -5,7 +5,7 @@ Feature: Country Input Filter
 
   Scenario: See the Filtered Country List
     Given I am in the country list page
-    When I see the country list search input
+    When I see the country list filters
     And I type "s" in the country list filter
     Then I see a total of "2" countries
     And I see the following country card information:

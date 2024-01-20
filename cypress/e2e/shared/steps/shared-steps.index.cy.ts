@@ -78,3 +78,7 @@ Then('I click on the {string} country card', (countryName: string) =>
 Then('I verify that the url includes {string}', (url: string) =>
     cy.url().should('include', url)
 );
+
+Then('I see the country list filters', () =>
+    cy.getByDataTest('country-list-filters').should('be.visible')
+);
