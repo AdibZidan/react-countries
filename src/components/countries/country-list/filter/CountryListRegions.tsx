@@ -1,7 +1,7 @@
 import { useFilteredCountryListState, useSearchParams } from '@hooks';
 import { Button, Details, Div, Inline } from '@ui';
 import classNames from 'classnames';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { useRegions } from './hooks';
 
 export const CountryListRegions: FC = () => {
@@ -10,18 +10,11 @@ export const CountryListRegions: FC = () => {
         updateParam,
         resetParam
     } = useSearchParams('region');
-    const [isResetButtonDisabled, setIsResetButtonDisabled] = useState(
-        !regionParam
-    );
     const { regions } = useRegions();
     const { reset: resetCountryListState, setFilteredCountries } =
         useFilteredCountryListState();
 
     const handleReset = () => {
-        if (!isResetButtonDisabled) {
-            setIsResetButtonDisabled(true);
-        }
-
         resetParam();
         resetCountryListState();
     };
@@ -34,10 +27,6 @@ export const CountryListRegions: FC = () => {
                         selected: regionParam === region
                     });
                     const handleOnClick = () => {
-                        if (isResetButtonDisabled) {
-                            setIsResetButtonDisabled(false);
-                        }
-
                         updateParam(region);
                         setFilteredCountries(region, 'region');
                     };
@@ -56,7 +45,7 @@ export const CountryListRegions: FC = () => {
             </Div>
             <Button
                 className="secondary"
-                isDisabled={isResetButtonDisabled}
+                isDisabled={!regionParam}
                 onClick={handleReset}
             >
                 Reset
