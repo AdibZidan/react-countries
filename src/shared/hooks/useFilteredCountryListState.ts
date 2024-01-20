@@ -22,22 +22,25 @@ export const useFilteredCountryListState = create<Zustand>()(
         filteredCountries: [],
         setCountries: countries =>
             setState({ countries, filteredCountries: countries }),
-        setFilteredCountries: (searchTerm, type) =>
+        setFilteredCountries: (searchTerm, type) => {
+            const searchTermLowerCased = searchTerm.toLowerCase();
+
             setState({
                 filteredCountries: getState().countries.filter(
                     ({ name: { common }, region }) => {
                         if (type === 'name') {
                             return common
                                 .toLowerCase()
-                                .includes(searchTerm.toLowerCase());
+                                .includes(searchTermLowerCased);
                         }
 
                         return region
                             .toLowerCase()
-                            .includes(searchTerm.toLowerCase());
+                            .includes(searchTermLowerCased);
                     }
                 )
-            }),
+            });
+        },
         reset: () =>
             setState({
                 countries: getState().countries,
