@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactElement, ReactNode } from 'react';
 import './Button.scss';
 
 interface Props {
@@ -6,6 +6,7 @@ interface Props {
     className?: 'primary' | 'secondary';
     onClick?: () => void;
     isDisabled?: boolean;
+    icon?: ReactElement;
     'data-test'?: string;
 }
 
@@ -14,6 +15,7 @@ export const Button: FC<Props> = ({
     className = 'primary',
     onClick = () => {},
     isDisabled = false,
+    icon,
     'data-test': dataTest
 }) => (
     <button
@@ -22,6 +24,7 @@ export const Button: FC<Props> = ({
         onClick={onClick}
         disabled={isDisabled}
     >
+        {icon}
         {children}
     </button>
 );

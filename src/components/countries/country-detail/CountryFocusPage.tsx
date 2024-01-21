@@ -20,8 +20,8 @@ export const CountryFocusPage: FC<Props> = ({ children, className }) => {
                     data-test="country-detail-navigate-back-button"
                     className="secondary"
                     onClick={navigateBackToCountryList}
+                    icon={<LeftArrowIcon />}
                 >
-                    <LeftArrowIcon />
                     Back
                 </Button>
             </InnerWrapper>
